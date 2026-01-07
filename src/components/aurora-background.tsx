@@ -53,11 +53,16 @@ export const AuroraBackground = () => {
   }, []);
 
   // Calculate colors based on hue and theme
-  const opacity = isDark ? { primary: 0.3, secondary: 0.25, tertiary: 0.2 } : { primary: 0.15, secondary: 0.12, tertiary: 0.08 };
+  // Using OKLCH for better perceptual uniformity across all hues
+  // Dark mode has reduced opacity for a more subtle effect
+  const opacity = isDark ? { primary: 0.2, secondary: 0.15, tertiary: 0.12 } : { primary: 0.15, secondary: 0.12, tertiary: 0.08 };
   const colors = {
-    primary: `hsl(${hue} 70% 60% / ${opacity.primary})`,
-    secondary: `hsl(${(hue + 60) % 360} 60% 55% / ${opacity.secondary})`,
-    tertiary: `hsl(${(hue - 40 + 360) % 360} 65% 58% / ${opacity.tertiary})`,
+    // OKLCH format: oklch(lightness chroma hue / alpha)
+    // Lightness: 0.65 for balanced brightness
+    // Chroma: 0.20 for vivid but not oversaturated colors
+    primary: `oklch(0.65 0.20 ${hue} / ${opacity.primary})`,
+    secondary: `oklch(0.60 0.18 ${(hue + 60) % 360} / ${opacity.secondary})`,
+    tertiary: `oklch(0.62 0.19 ${(hue - 40 + 360) % 360} / ${opacity.tertiary})`,
   };
 
   return (

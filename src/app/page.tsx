@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/hero-section";
+import { HeroSection } from "@/components/sections/hero-section";
 import { TechStack } from "@/components/tech-stack";
 
 export default function Home() {

@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import { HeroCard } from "./hero-card";
-import { Github, Linkedin, Twitter, Download, ArrowRight, ArrowDown } from "lucide-react";
+import { HeroCard } from "../hero-card";
+import { Download, ArrowRight, ArrowDown, Linkedin } from "lucide-react";
 
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-import { AuroraBackground } from "./aurora-background";
+import { AuroraBackground } from "../aurora-background";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 // import { RadialGradientBackground } from "./radial-gradient-background";
 
 export const HeroSection = () => {
@@ -39,8 +40,8 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-start text-left space-y-6 lg:space-y-8"
         >
-          <div className="space-y-4 md:space-y-3">
-            <span className="text-base md:text-lg font-bold tracking-[0.2em] text-primary pl-1 py-1">
+          <div className="flex flex-col gap-2">
+            <span className="text-base md:text-lg font-bold tracking-[0.2em] text-primary pl-1">
               {t("greeting")}
             </span>
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground drop-shadow-sm leading-none">
@@ -51,7 +52,7 @@ export const HeroSection = () => {
           </div>
 
           <div className="space-y-6 lg:space-y-8 max-w-2xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
+            <h2 className="text-1xl md:text-2xl lg:text-3xl font-bold text-foreground">
               {t("role")}
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl font-medium">
@@ -60,14 +61,11 @@ export const HeroSection = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="https://github.com/EnzoSylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-border/50 hover:bg-primary/20 hover:text-primary hover:border-primary/50 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <Github className="w-5 h-5" />
+            <Link href="https://github.com/EnzoSylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <SiGithub className="w-5 h-5" />
             </Link>
-            <Link href="https://linkedin.com/in/enzo-sylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-border/50 hover:bg-primary/20 hover:text-primary hover:border-primary/50 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+            <Link href="https://linkedin.com/in/enzo-sylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <Linkedin className="w-5 h-5" />
-            </Link>
-            <Link href="https://twitter.com/EnzoSylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-border/50 hover:bg-primary/20 hover:text-primary hover:border-primary/50 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <Twitter className="w-5 h-5" />
             </Link>
           </div>
 
