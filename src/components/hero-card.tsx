@@ -51,7 +51,7 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-10 z-20 w-full px-4 mb-auto mt-6" style={{ transform: "translateZ(40px)" }}>
+          <div className="flex flex-col items-center justify-center gap-4 z-20 w-full px-4 mb-auto mt-6" style={{ transform: "translateZ(40px)" }}>
             <div className="text-center space-y-3">
               <div className="text-6xl md:text-7xl font-bold text-foreground">
                 21
@@ -81,7 +81,7 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
           </div>
 
           <div
-            className="w-full pt-10 z-20 flex justify-center"
+            className="w-full pt-12 z-20 flex justify-center"
             style={{ transform: "translateZ(60px)" }}
           >
             <MorphingText

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 
+import { Logo } from "./logo";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
@@ -18,7 +18,6 @@ interface DesktopHeaderProps {
 
 export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
   const pathname = usePathname();
-  const t = useTranslations("header");
 
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
@@ -37,9 +36,11 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
       className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden md:block"
     >
       <div className="pointer-events-auto flex h-14 items-center gap-4 rounded-full border border-primary/30 bg-background/80 px-5 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/80 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/70">
-        <Link href="/" className="rounded-full px-3.5 text-sm font-semibold">
-          {t("logo")}
+        <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">
+          <Logo />
         </Link>
+
+        <div className="ml-1 h-6 w-px bg-foreground/20 dark:bg-border" />
 
         <nav className="relative flex items-center gap-2">
           {navItems.map((item) => {

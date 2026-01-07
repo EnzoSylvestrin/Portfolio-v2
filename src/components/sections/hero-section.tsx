@@ -19,7 +19,7 @@ export const HeroSection = () => {
     t("adjectives.1"),
     t("adjectives.2"),
     t("adjectives.3"),
-    t("adjectives.4")
+    t("adjectives.4"),
   ];
 
   return (
@@ -64,7 +64,7 @@ export const HeroSection = () => {
             <Link href="https://github.com/EnzoSylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <SiGithub className="w-5 h-5" />
             </Link>
-            <Link href="https://linkedin.com/in/enzo-sylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+            <Link href="https://www.linkedin.com/in/enzo-sylvestrin-336b71221/" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <Linkedin className="w-5 h-5" />
             </Link>
           </div>

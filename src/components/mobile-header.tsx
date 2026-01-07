@@ -7,9 +7,9 @@ import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 
+import { Logo } from "./logo";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
@@ -22,7 +22,6 @@ interface MobileHeaderProps {
 
 export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
   const pathname = usePathname();
-  const t = useTranslations("header");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
@@ -43,8 +42,8 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
         className="fixed top-0 left-0 right-0 z-50 hidden sm:block md:hidden"
       >
         <div className="flex h-16 items-center justify-center gap-4 px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
-          <Link href="/" className="text-sm font-semibold absolute left-4">
-            {t("logo")}
+          <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity absolute left-4">
+            <Logo />
           </Link>
 
           <nav className="relative flex items-center gap-2 justify-center">
@@ -81,8 +80,8 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
         className="fixed top-0 left-0 right-0 z-50 sm:hidden"
       >
         <div className="flex h-16 items-center justify-between px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
-          <Link href="/" className="text-sm font-semibold">
-            {t("logo")}
+          <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">
+            <Logo />
           </Link>
 
           <div className="flex items-center gap-2">
