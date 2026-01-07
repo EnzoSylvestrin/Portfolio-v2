@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
+import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
 import { AnimatedTabs } from "./ui/animated-tabs";
 
@@ -64,10 +65,12 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
             })}
           </nav>
 
-          <div className="flex items-center gap-2 absolute right-4">
-            <LanguageToggler />
-            <AnimatedThemeToggler />
-          </div>
+          <div className="ml-1 h-6 w-px bg-border dark:bg-border" />
+        <div className="flex items-center gap-3">
+          <AnimatedColorPicker />
+          <LanguageToggler />
+          <AnimatedThemeToggler />
+        </div>
         </div>
       </motion.header>
 
@@ -83,6 +86,7 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
           </Link>
 
           <div className="flex items-center gap-2">
+            <AnimatedColorPicker />
             <LanguageToggler />
             <AnimatedThemeToggler />
             <button

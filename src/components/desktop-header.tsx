@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
+import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
 import { AnimatedTabs } from "./ui/animated-tabs";
 
@@ -60,6 +61,7 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
 
         <div className="ml-1 h-6 w-px bg-border dark:bg-border" />
         <div className="flex items-center gap-3">
+          <AnimatedColorPicker />
           <LanguageToggler />
           <AnimatedThemeToggler />
         </div>

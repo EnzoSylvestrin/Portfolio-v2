@@ -37,7 +37,7 @@ export const LanguageToggler = ({
       onClick={toggleLanguage}
       className={cn(
         "relative flex items-center justify-center p-2 rounded-md border transition-all min-w-[36px]",
-        "border-border hover:border-primary/50 hover:bg-accent text-foreground/70 hover:text-foreground",
+        "border-border hover:border-primary/40 hover:bg-primary/5 text-foreground",
         className
       )}
       {...props}
