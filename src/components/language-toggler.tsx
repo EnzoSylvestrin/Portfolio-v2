@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { Globe } from "lucide-react";
 
 export const LanguageToggler = ({
   className,
@@ -35,16 +36,17 @@ export const LanguageToggler = ({
     <button
       onClick={toggleLanguage}
       className={cn(
-        "flex items-center justify-center p-2 rounded-full border text-xs font-semibold transition-all min-w-[36px]",
-        "border-black/10 hover:border-black/20 hover:bg-black/5 text-black/70 hover:text-black",
-        "dark:border-white/20 dark:hover:border-white/30 dark:hover:bg-white/10 dark:text-white/80 dark:hover:text-white",
-        className,
+        "relative flex items-center justify-center p-2 rounded-md border transition-all min-w-[36px]",
+        "border-border hover:border-primary/50 hover:bg-accent text-foreground/70 hover:text-foreground",
+        className
       )}
       {...props}
     >
-      {locale.toUpperCase()}
+      <Globe size={16} />
+      <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[9px] font-bold bg-primary text-primary-foreground rounded-md">
+        {locale.toUpperCase()}
+      </span>
       <span className="sr-only">Toggle language</span>
     </button>
   );
 };
-

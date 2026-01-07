@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 
-import { getMessages } from "next-intl/server";
-
 import { ThemeProvider } from "@/components/theme-provider";
+import { Pointer } from "@/components/ui/pointer";
+import Header from "@/components/header";
 
 import "./globals.css";
 
@@ -40,6 +40,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Header />
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
