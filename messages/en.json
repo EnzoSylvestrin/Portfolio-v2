@@ -1,0 +1,11 @@
+{
+    "header": {
+        "logo": "ES",
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "skills": "Skills",
+        "contact": "Contact"
+    }
+}
