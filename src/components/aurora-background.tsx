@@ -70,7 +70,7 @@ export const AuroraBackground = () => {
       className="absolute inset-0 overflow-hidden pointer-events-none z-1"
       initial={{ opacity: 0 }}
       animate={{ opacity: isReady ? 1 : 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
     >
       {/* Aurora Wave 1 - Primary Color */}
       <motion.div

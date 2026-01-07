@@ -14,14 +14,14 @@ interface ColorPickerProps extends React.ComponentPropsWithoutRef<"button"> {
 const COLOR_PRESETS = [
   { name: "Purple", hue: 290, label: "💜" },
   { name: "Blue", hue: 220, label: "💙" },
-  { name: "Green", hue: 150, label: "💚" },
-  { name: "Orange", hue: 30, label: "🧡" },
-  { name: "Pink", hue: 330, label: "💗" },
   { name: "Teal", hue: 180, label: "🩵" },
-  { name: "Red", hue: 0, label: "❤️" },
-  { name: "Cyan", hue: 200, label: "💎" },
+  { name: "Green", hue: 150, label: "💚" },
+  { name: "Lime", hue: 100, label: "💚" },
   { name: "Yellow", hue: 60, label: "💛" },
-  { name: "Indigo", hue: 260, label: "💙" },
+  { name: "Amber", hue: 40, label: "🧡" },
+  { name: "Orange", hue: 20, label: "🧡" },
+  { name: "Red", hue: 0, label: "❤️" },
+  { name: "Pink", hue: 330, label: "💗" },
 ];
 
 export const AnimatedColorPicker = ({

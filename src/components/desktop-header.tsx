@@ -33,7 +33,7 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
       initial={{ y: -64, opacity: 0 }}
       animate={{ y: hidden ? -64 : 0, opacity: hidden ? 0.5 : 1 }}
       transition={{ type: "spring", stiffness: 400, damping: 32 }}
-      className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden md:block"
+      className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden lg:block"
     >
       <div className="pointer-events-auto flex h-14 items-center gap-4 rounded-full border border-primary/30 bg-background/80 px-5 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/80 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/70">
         <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">

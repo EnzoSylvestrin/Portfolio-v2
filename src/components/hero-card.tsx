@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { MapPin, Coffee } from "lucide-react";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
-import { SiNodedotjs, SiReact, SiLaravel } from "@icons-pack/react-simple-icons";
+import { SiNodedotjs, SiReact, SiLaravel, SiTypescript } from "@icons-pack/react-simple-icons";
 
 const MorphingText = dynamic(() => import("@/components/ui/morphing-text").then((mod) => mod.MorphingText), {
   ssr: false,
@@ -48,6 +48,10 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
             <SiLaravel 
               className="w-8 h-8 opacity-80 cursor-default text-primary hover:opacity-100 transition-opacity" 
               title="Laravel"
+            />
+            <SiTypescript
+              className="w-8 h-8 opacity-80 cursor-default text-primary hover:opacity-100 transition-opacity" 
+              title="TypeScript"
             />
           </div>
 

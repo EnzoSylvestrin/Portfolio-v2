@@ -26,7 +26,7 @@ export const HeroSection = () => {
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 pt-16">
 
       <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
+        className="absolute inset-0 bg-[linear-gradient(to_right,#53535312_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
         style={{ maskImage: "radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)" }}
       />
 
@@ -35,9 +35,9 @@ export const HeroSection = () => {
 
       <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10 flex-1">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col items-start text-left space-y-6 lg:space-y-8"
         >
           <div className="flex flex-col gap-2">

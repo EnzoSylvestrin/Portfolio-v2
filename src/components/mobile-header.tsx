@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Menu, X } from "lucide-react";
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -13,7 +13,6 @@ import { Logo } from "./logo";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
-import { AnimatedTabs } from "./ui/animated-tabs";
 
 interface MobileHeaderProps {
   hidden: boolean;
@@ -23,82 +22,39 @@ interface MobileHeaderProps {
 export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string | null>(null);
 
   const activeKey =
     navItems.find((n) => pathname === n.href)?.href ??
     navItems[0]?.href ??
     null;
 
-  const currentTab = hovered ?? selected ?? activeKey;
-
   return (
-    <>
-      <motion.header
-        initial={{ y: -64, opacity: 0 }}
-        animate={{ y: hidden ? -64 : 0, opacity: hidden ? 0.5 : 1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 32 }}
-        className="fixed top-0 left-0 right-0 z-50 hidden sm:block md:hidden"
-      >
-        <div className="flex h-16 items-center justify-center gap-4 px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
-          <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity absolute left-4">
-            <Logo />
-          </Link>
+    <motion.header
+      initial={{ y: -64, opacity: 0 }}
+      animate={{ y: hidden ? -64 : 0, opacity: hidden ? 0.5 : 1 }}
+      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+      className="fixed top-0 left-0 right-0 z-50 lg:hidden"
+    >
+      <div className="flex h-16 items-center justify-between px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
+        <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">
+          <Logo />
+        </Link>
 
-          <nav className="relative flex items-center gap-2 justify-center">
-            {navItems.slice(0, 4).map((item) => {
-              const isActive = activeKey === item.href;
-              const isCurrent = currentTab === item.href;
-              return (
-                <AnimatedTabs
-                  key={item.href}
-                  item={item}
-                  setHovered={setHovered}
-                  setSelected={setSelected}
-                  isActive={isActive}
-                  isCurrent={isCurrent}
-                  layoutId="tab-hover-mobile"
-                />
-              );
-            })}
-          </nav>
-
-          <div className="ml-1 h-6 w-px bg-border dark:bg-border" />
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <AnimatedColorPicker />
           <LanguageToggler />
           <AnimatedThemeToggler />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex items-center justify-center p-2 rounded-md border border-foreground/20 dark:border-border transition-all min-w-[36px] text-foreground/70 hover:text-foreground hover:bg-accent"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+          </button>
         </div>
-        </div>
-      </motion.header>
+      </div>
 
-      <motion.header
-        initial={{ y: -64, opacity: 0 }}
-        animate={{ y: hidden ? -64 : 0, opacity: hidden ? 0.5 : 1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 32 }}
-        className="fixed top-0 left-0 right-0 z-50 sm:hidden"
-      >
-        <div className="flex h-16 items-center justify-between px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
-          <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">
-            <Logo />
-          </Link>
-
-          <div className="flex items-center gap-2">
-            <AnimatedColorPicker />
-            <LanguageToggler />
-            <AnimatedThemeToggler />
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex items-center justify-center p-2 rounded-md border border-border transition-all min-w-[36px] text-foreground/70 hover:text-foreground hover:bg-accent"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
         {mobileMenuOpen && (
           <motion.nav
             initial={{ opacity: 0, y: -20 }}
@@ -131,8 +87,8 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
             </div>
           </motion.nav>
         )}
-      </motion.header>
-    </>
+      </AnimatePresence>
+    </motion.header>
   );
 }
 
