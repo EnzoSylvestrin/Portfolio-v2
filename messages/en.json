@@ -7,5 +7,26 @@
         "projects": "Projects",
         "skills": "Skills",
         "contact": "Contact"
+    },
+    "colorPicker": {
+        "title": "Choose Your Theme",
+        "subtitle": "Pick your favorite color",
+        "ariaLabel": "Change theme color"
+    },
+    "hero": {
+        "greeting": "Hello, I am",
+        "role": "Software Engineer FullStack",
+        "description": "Full-stack & Mobile Software Engineer, specialized in TypeScript, React and Nest.js. Passionate about building high-quality web applications.",
+        "viewProjects": "View Projects",
+        "downloadCv": "Download CV",
+        "yearsOld": "Years Old",
+        "location": "Brazil",
+        "adjectives": ["Developer", "Creative", "Nerd", "Mid-level", "Full Stack"],
+        "yrsXp": "Yrs XP",
+        "coffees": "Coffees"
+    },
+    "techStack": {
+        "title": "Technologies & Tools",
+        "subtitle": "My preferred stack for building robust applications"
     }
 }

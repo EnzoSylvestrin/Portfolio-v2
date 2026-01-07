@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Palette } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface ColorPickerProps extends React.ComponentPropsWithoutRef<"button"> {
@@ -23,14 +24,18 @@ export const AnimatedColorPicker = ({
   className,
   ...props
 }: ColorPickerProps) => {
+  const t = useTranslations("colorPicker");
   const [isOpen, setIsOpen] = useState(false);
   const [buttonRect, setButtonRect] = useState<DOMRect | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   
   const [currentHue, setCurrentHue] = useState(() => {
     if (typeof window !== "undefined") {
-      const savedHue = localStorage.getItem("theme-hue");
-      if (savedHue) {
+      // Lê o cookie theme-hue
+      const cookies = document.cookie.split("; ");
+      const hueCookie = cookies.find(c => c.startsWith("theme-hue="));
+      if (hueCookie) {
+        const savedHue = hueCookie.split("=")[1];
         return parseInt(savedHue, 10);
       }
     }
@@ -39,21 +44,11 @@ export const AnimatedColorPicker = ({
 
   const applyColorToTheme = (hue: number) => {
     const root = document.documentElement;
+    // Apenas atualiza o hue, as outras cores são calculadas via CSS variáveis no globals.css
+    root.style.setProperty("--theme-hue", hue.toString());
     
-    root.style.setProperty("--primary", `oklch(0.55 0.22 ${hue})`);
-    root.style.setProperty("--primary-light", `oklch(0.75 0.15 ${hue})`);
-    root.style.setProperty("--primary-dark", `oklch(0.40 0.25 ${hue})`);
-    root.style.setProperty("--accent", `oklch(0.96 0.02 ${hue})`);
-    root.style.setProperty("--ring", `oklch(0.55 0.22 ${hue})`);
-    
-    const isDark = root.classList.contains("dark");
-    if (isDark) {
-      root.style.setProperty("--primary", `oklch(0.70 0.20 ${hue})`);
-      root.style.setProperty("--primary-light", `oklch(0.80 0.15 ${hue})`);
-      root.style.setProperty("--primary-dark", `oklch(0.50 0.22 ${hue})`);
-    }
-    
-    localStorage.setItem("theme-hue", hue.toString());
+    // Salva no cookie (válido por 1 ano)
+    document.cookie = `theme-hue=${hue}; path=/; max-age=31536000; SameSite=Lax`;
   };
 
   useEffect(() => {
@@ -70,7 +65,6 @@ export const AnimatedColorPicker = ({
   const handleColorSelect = (hue: number) => {
     setCurrentHue(hue);
     applyColorToTheme(hue);
-    setTimeout(() => setIsOpen(false), 300);
   };
 
   const modalContent = isOpen && buttonRect ? (
@@ -84,112 +78,112 @@ export const AnimatedColorPicker = ({
       />
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: -10 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: -10 }}
+        initial={{ opacity: 0, scale: 0.95, y: -10, x: "-50%" }}
+        animate={{ opacity: 1, scale: 1, y: 0, x: "-50%" }}
+        exit={{ opacity: 0, scale: 0.95, y: -10, x: "-50%" }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        className="fixed z-[101] overflow-hidden rounded-2xl border border-border bg-card shadow-2xl"
+        className="fixed z-[101] overflow-visible"
         style={{
-          left: `${buttonRect.left + buttonRect.width / 2 - 150}px`, // 150px = half of modal width (300px)
+          left: `${buttonRect.left + buttonRect.width / 2}px`,
           top: `${buttonRect.bottom + 12}px`,
         }}
       >
-        <div className="p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-sm font-semibold text-foreground">
-                Choose Your Theme
-              </h3>
-              <p className="text-xs text-foreground/50 mt-0.5">
-                Pick your favorite color
-              </p>
+        <div
+          className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-card border-l border-t border-border"
+          style={{ zIndex: -1 }}
+        />
+        
+        <div className="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden">
+          <div className="p-5">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-sm font-semibold text-foreground">
+                  {t("title")}
+                </h3>
+                <p className="text-xs text-foreground/50 mt-0.5">
+                  {t("subtitle")}
+                </p>
+              </div>
+              <div 
+                className="w-6 h-6 rounded-full"
+                style={{
+                  background: `oklch(0.65 0.20 ${currentHue})`,
+                  boxShadow: `0 0 20px oklch(0.65 0.20 ${currentHue} / 0.3)`,
+                }}
+              />
             </div>
-            <div 
-              className="w-6 h-6 rounded-full"
-              style={{
-                background: `oklch(0.65 0.20 ${currentHue})`,
-                boxShadow: `0 0 20px oklch(0.65 0.20 ${currentHue} / 0.3)`,
-              }}
-            />
-          </div>
-          
-          <div className="grid grid-cols-3 gap-3 min-w-[240px]">
-            {COLOR_PRESETS.map((color) => {
-              const isSelected = currentHue === color.hue;
-              return (
-                <motion.button
-                  key={color.hue}
-                  onClick={() => handleColorSelect(color.hue)}
-                  className={cn(
-                    "relative flex flex-col items-center justify-center p-4 rounded-xl transition-all group",
-                    "hover:scale-105 active:scale-95",
-                    isSelected
-                      ? "bg-primary/10 shadow-lg"
-                      : "hover:bg-accent/30"
-                  )}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {isSelected && (
-                    <motion.div
-                      layoutId="selected-color-bg"
-                      className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5"
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25,
-                      }}
-                    />
-                  )}
-                  
-                  <div className="relative">
-                    <div
-                      className={cn(
-                        "w-12 h-12 rounded-full shadow-lg transition-all",
-                        "ring-2 ring-background",
-                        isSelected && "ring-primary"
-                      )}
-                      style={{
-                        background: `oklch(0.65 0.20 ${color.hue})`,
-                        boxShadow: isSelected 
-                          ? `0 8px 20px oklch(0.65 0.20 ${color.hue} / 0.4)`
-                          : `0 4px 12px oklch(0.65 0.20 ${color.hue} / 0.2)`,
-                      }}
-                    />
+            
+            <div className="grid grid-cols-3 gap-3 min-w-[240px]">
+              {COLOR_PRESETS.map((color) => {
+                const isSelected = currentHue === color.hue;
+                return (
+                  <motion.button
+                    key={color.hue}
+                    onClick={() => handleColorSelect(color.hue)}
+                    className={cn(
+                      "relative flex items-center justify-center p-4 rounded-xl transition-all group",
+                      "hover:scale-105 active:scale-95",
+                      isSelected
+                        ? "bg-primary/10 shadow-lg"
+                        : "hover:bg-accent/30"
+                    )}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     {isSelected && (
                       <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="absolute -top-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg"
-                      >
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M10 3L4.5 8.5L2 6"
-                            stroke="var(--primary-foreground)"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </motion.div>
+                        layoutId="selected-color-bg"
+                        className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5"
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 25,
+                        }}
+                      />
                     )}
-                  </div>
-                  
-                  <span className="text-sm font-medium mt-2 relative z-10">
-                    {color.label}
-                  </span>
-                  <span className="text-[10px] text-foreground/40 mt-0.5 relative z-10">
-                    {color.name}
-                  </span>
-                </motion.button>
-              );
-            })}
+                    
+                    <div className="relative">
+                      <div
+                        className={cn(
+                          "w-14 h-14 rounded-full shadow-lg transition-all",
+                          "ring-2 ring-background",
+                          isSelected && "ring-primary"
+                        )}
+                        style={{
+                          background: `oklch(0.65 0.20 ${color.hue})`,
+                          boxShadow: isSelected 
+                            ? `0 8px 20px oklch(0.65 0.20 ${color.hue} / 0.4)`
+                            : `0 4px 12px oklch(0.65 0.20 ${color.hue} / 0.2)`,
+                        }}
+                      />
+                      {isSelected && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="absolute -top-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-lg"
+                        >
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 3L4.5 8.5L2 6"
+                              stroke="var(--primary-foreground)"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </motion.div>
+                      )}
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -206,7 +200,7 @@ export const AnimatedColorPicker = ({
           "border-border hover:border-primary/40 hover:bg-primary/5 text-foreground",
           className
         )}
-        aria-label="Change theme color"
+        aria-label={t("ariaLabel")}
         {...props}
       >
         <Palette size={16} />

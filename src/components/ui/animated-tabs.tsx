@@ -21,7 +21,7 @@ export const AnimatedTabs = ({
   return (
     <Link
       href={item.href}
-      className="relative rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 outline-none transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground before:absolute before:inset-[-4px] before:rounded-full"
+      className="relative rounded-lg px-3.5 py-2 text-sm font-medium text-foreground/80 outline-none transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground before:absolute before:inset-[-4px] before:rounded-lg"
       onMouseEnter={() => setHovered(item.href)}
       onMouseLeave={() => setHovered(null)}
       onClick={() => setSelected(item.href)}
@@ -30,7 +30,7 @@ export const AnimatedTabs = ({
       {isCurrent && (
         <motion.div
           layoutId={layoutId}
-          className="absolute inset-0 z-0 rounded-full bg-primary/8 dark:bg-primary/20"
+          className="absolute inset-0 z-0 rounded-lg bg-primary/8 dark:bg-primary/20"
           transition={{
             type: "spring",
             stiffness: 600,
