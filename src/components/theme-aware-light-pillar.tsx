@@ -51,13 +51,13 @@ export const ThemeAwareLightPillar = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none mix-blend-screen opacity-40 dark:opacity-30">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none dark:mix-blend-screen mix-blend-normal opacity-80 dark:opacity-40">
       <LightPillar
         topColor={colors.top}
         bottomColor={colors.bottom}
-        intensity={0.6}
+        intensity={0.8}
         pillarWidth={4}
-        glowAmount={0.2}
+        glowAmount={0.4}
         className="w-full h-full opacity-60"
       />
     </div>

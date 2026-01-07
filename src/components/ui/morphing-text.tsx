@@ -4,8 +4,8 @@ import { useCallback, useEffect, useRef } from "react"
 
 import { cn } from "@/lib/utils"
 
-const morphTime = 1.5
-const cooldownTime = 0.5
+const morphTime = 2
+const cooldownTime = 1
 
 const useMorphingText = (texts: string[]) => {
   const textIndexRef = useRef(0)
@@ -21,12 +21,12 @@ const useMorphingText = (texts: string[]) => {
       const [current1, current2] = [text1Ref.current, text2Ref.current]
       if (!current1 || !current2) return
 
-      current2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`
+      current2.style.filter = `blur(${Math.min(4 / fraction - 4, 100)}px)`
       current2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`
 
       const invertedFraction = 1 - fraction
       current1.style.filter = `blur(${Math.min(
-        8 / invertedFraction - 8,
+        4 / invertedFraction - 4,
         100
       )}px)`
       current1.style.opacity = `${Math.pow(invertedFraction, 0.4) * 100}%`
@@ -112,38 +112,16 @@ const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   )
 }
 
-const SvgFilters: React.FC = () => (
-  <svg
-    id="filters"
-    className="fixed h-0 w-0"
-    preserveAspectRatio="xMidYMid slice"
-  >
-    <defs>
-      <filter id="threshold">
-        <feColorMatrix
-          in="SourceGraphic"
-          type="matrix"
-          values="1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  0 0 0 255 -140"
-        />
-      </filter>
-    </defs>
-  </svg>
-)
-
 export const MorphingText: React.FC<MorphingTextProps> = ({
   texts,
   className,
 }) => (
   <div
     className={cn(
-      "relative mx-auto h-16 w-full text-center font-sans font-bold leading-none [filter:url(#threshold)_blur(0.6px)]",
+      "relative mx-auto h-16 w-full text-center font-sans font-bold leading-none",
       className
     )}
   >
     <Texts texts={texts} />
-    <SvgFilters />
   </div>
 )

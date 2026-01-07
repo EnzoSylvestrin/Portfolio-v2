@@ -18,6 +18,10 @@ const COLOR_PRESETS = [
   { name: "Orange", hue: 30, label: "🧡" },
   { name: "Pink", hue: 330, label: "💗" },
   { name: "Teal", hue: 180, label: "🩵" },
+  { name: "Red", hue: 0, label: "❤️" },
+  { name: "Cyan", hue: 200, label: "💎" },
+  { name: "Yellow", hue: 60, label: "💛" },
+  { name: "Indigo", hue: 260, label: "💙" },
 ];
 
 export const AnimatedColorPicker = ({
@@ -145,7 +149,7 @@ export const AnimatedColorPicker = ({
                     <div className="relative">
                       <div
                         className={cn(
-                          "w-14 h-14 rounded-full shadow-lg transition-all",
+                          "w-10 h-10 rounded-full shadow-lg transition-all",
                           "ring-2 ring-background",
                           isSelected && "ring-primary"
                         )}
@@ -197,7 +201,7 @@ export const AnimatedColorPicker = ({
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           "relative flex items-center justify-center p-2 rounded-md border transition-all min-w-[36px]",
-          "border-border hover:border-primary/40 hover:bg-primary/5 text-foreground",
+          "border-foreground/20 dark:border-border hover:border-primary/40 hover:bg-primary/5 text-foreground",
           className
         )}
         aria-label={t("ariaLabel")}

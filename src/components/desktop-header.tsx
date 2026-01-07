@@ -36,7 +36,7 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
       transition={{ type: "spring", stiffness: 400, damping: 32 }}
       className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden md:block"
     >
-      <div className="pointer-events-auto flex h-14 items-center gap-4 rounded-full border border-border bg-background/80 px-5 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/80 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/70">
+      <div className="pointer-events-auto flex h-14 items-center gap-4 rounded-full border border-primary/30 bg-background/80 px-5 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/80 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/70">
         <Link href="/" className="rounded-full px-3.5 text-sm font-semibold">
           {t("logo")}
         </Link>
@@ -59,7 +59,7 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
           })}
         </nav>
 
-        <div className="ml-1 h-6 w-px bg-border dark:bg-border" />
+        <div className="ml-1 h-6 w-px bg-foreground/20 dark:bg-border" />
         <div className="flex items-center gap-3">
           <AnimatedColorPicker />
           <LanguageToggler />
