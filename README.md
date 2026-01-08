@@ -58,6 +58,14 @@
 - ✅ **Transições**: View Transitions API para mudanças suaves
 - ✅ **Auto-hint Inicial**: Tooltip da paleta aparece na primeira visita
 
+### ♿ Acessibilidade
+- ✅ **Reduced Motion**: Respeita preferência de animações reduzidas do sistema
+- ✅ **Framer Motion Config**: Ajuste automático de animações baseado em preferências
+- ✅ **CSS Media Queries**: Desabilita animações quando necessário
+- ✅ **Navegação por Teclado**: Todos os elementos interativos acessíveis via teclado
+- ✅ **ARIA Labels**: Labels descritivos para screen readers
+- ✅ **Semantic HTML**: Estrutura HTML semântica e acessível
+
 ---
 
 ## 🛠️ Stack Tecnológica
@@ -178,6 +186,8 @@ portfolio-v2/
 │   │   │   ├── console-art.tsx     # ASCII art no console
 │   │   │   └── ...
 │   │   └── theme-provider.tsx # Provedor de tema
+│   ├── hooks/
+│   │   └── use-reduced-motion.ts # Hook de acessibilidade
 │   ├── data/                  # Dados JSON
 │   │   └── main/
 │   │       ├── skills.json    # Habilidades técnicas
@@ -276,7 +286,7 @@ O projeto funciona em qualquer plataforma que suporte Next.js:
 - ⚡ **Lighthouse Score**: 95-100 em todas as categorias
 - 🚀 **First Contentful Paint**: < 1s
 - 📱 **Mobile Friendly**: 100/100
-- ♿ **Accessibility**: WCAG AA compliant
+- ♿ **Accessibility**: WCAG AA compliant + Reduced Motion
 - 🔍 **SEO**: Otimizado para mecanismos de busca
 
 ---

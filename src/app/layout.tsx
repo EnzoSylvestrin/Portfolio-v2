@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import { MotionConfig } from "framer-motion";
+
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
@@ -10,9 +12,10 @@ import { getPersonSchema, getWebSiteSchema } from "@/lib/schema";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { ConsoleArt } from "@/components/ui/console-art";
-
-import "./globals.css";
 import { Footer } from "@/components/main/utils/footer";
+
+import "./reduced-motion.css";
+import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -124,12 +127,14 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ConsoleArt />
-            <ScrollProgress />
-            <Header />
-            {children}
-            <Footer />
-            <BackToTop />
+            <MotionConfig reducedMotion="user">
+              <ConsoleArt />
+              <ScrollProgress />
+              <Header />
+              {children}
+              <Footer />
+              <BackToTop />
+            </MotionConfig>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
