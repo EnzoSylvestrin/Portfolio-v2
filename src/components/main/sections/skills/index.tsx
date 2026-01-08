@@ -1,28 +1,36 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { SectionHeader } from "@/components/ui/section-header";
-import { SkillCard } from "./skill-card";
+
 import skillsData from "@/data/main/skills.json";
-import { Code2, Database, Server, Wrench, MousePointerClick } from "lucide-react";
-import { Meteors } from "@/components/ui/meteors";
+
+import { Code2, Database, Server, Wrench, MousePointerClick, Languages, FileCode } from "lucide-react";
+
+import { SectionHeader } from "@/components/utils/section-header";
 import { WaveDivider } from "@/components/ui/wave-divider";
+import { Meteors } from "@/components/ui/meteors";
+
+import { SkillCard } from "./skill-card";
 
 const categoryIcons = {
+  core: FileCode,
   frontend: Code2,
   backend: Server,
   database: Database,
   tools: Wrench,
-};
+  languages: Languages,
+} as const;
 
 export function SkillsSection() {
   const t = useTranslations("skills");
 
   const categories = [
+    { key: "core", skills: skillsData.core },
     { key: "frontend", skills: skillsData.frontend },
     { key: "backend", skills: skillsData.backend },
     { key: "database", skills: skillsData.database },
     { key: "tools", skills: skillsData.tools },
+    { key: "languages", skills: skillsData.languages },
   ];
 
   return (
@@ -63,17 +71,23 @@ export function SkillsSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-6 relative z-10">
             {categories.map((category, index) => {
               const Icon = categoryIcons[category.key as keyof typeof categoryIcons];
+              const isLastAndOdd = index === categories.length - 1 && categories.length % 2 !== 0;
+              
               return (
-                <SkillCard
+                <div 
                   key={category.key}
-                  title={t(category.key)}
-                  icon={Icon}
-                  skills={category.skills}
-                  index={index}
-                />
+                  className={isLastAndOdd ? "md:col-span-2 md:max-w-2xl md:mx-auto md:w-full" : ""}
+                >
+                  <SkillCard
+                    title={t(category.key)}
+                    icon={Icon}
+                    skills={category.skills}
+                    index={index}
+                  />
+                </div>
               );
             })}
           </div>

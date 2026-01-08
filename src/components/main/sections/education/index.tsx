@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Timeline } from "@/components/ui/timeline";
 import { EducationCard } from "./education-card";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/utils/section-header";
 
 import educationData from "@/data/main/education.json";
 

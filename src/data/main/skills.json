@@ -1,34 +1,80 @@
 {
+  "core": [
+    { "name": "TypeScript", "icon": "SiTypescript", "sinceYear": 2021, "color": "#3178C6" },
+    { "name": "JavaScript", "icon": "SiJavascript", "sinceYear": 2021, "color": "#F7DF1E" },
+    { "name": "PHP", "icon": "SiPhp", "sinceYear": 2023, "color": "#777BB4" }
+  ],
   "frontend": [
-    { "name": "React", "icon": "SiReact", "years": 3, "projects": 15 },
-    { "name": "Next.js", "icon": "SiNextdotjs", "years": 2, "projects": 8 },
-    { "name": "TypeScript", "icon": "SiTypescript", "years": 3, "projects": 12 },
-    { "name": "TailwindCSS", "icon": "SiTailwindcss", "years": 2, "projects": 10 },
-    { "name": "JavaScript", "icon": "SiJavascript", "years": 4, "projects": 20 },
-    { "name": "HTML5", "icon": "SiHtml5", "years": 5, "projects": 25 },
-    { "name": "CSS3", "icon": "SiCss3", "years": 5, "projects": 25 }
+    { "name": "React", "icon": "SiReact", "sinceYear": 2022, "color": "#61DAFB" },
+    { "name": "Next.js", "icon": "SiNextdotjs", "sinceYear": 2022, "color": "#000000" },
+    { "name": "Vite", "icon": "SiVite", "sinceYear": 2022, "color": "#646CFF" },
+    { 
+      "name": "TanStack", 
+      "iconUrl": "https://tanstack.com/images/logos/logo-color-600.png", 
+      "sinceYear": 2024, 
+      "color": "#FF4154" 
+    },
+    { "name": "TailwindCSS", "icon": "SiTailwindcss", "sinceYear": 2022, "color": "#06B6D4" },
+    { "name": "HTML5", "icon": "SiHtml5", "sinceYear": 2020, "color": "#E34F26" },
+    { "name": "CSS3", "icon": "SiCss", "sinceYear": 2020, "color": "#1572B6" }
   ],
   "backend": [
-    { "name": "Node.js", "icon": "SiNodedotjs", "years": 3, "projects": 12 },
-    { "name": "Java", "icon": "SiOpenjdk", "years": 4, "projects": 10 },
-    { "name": "Spring Boot", "icon": "SiSpring", "years": 3, "projects": 8 },
-    { "name": "Express", "icon": "SiExpress", "years": 2, "projects": 7 },
-    { "name": "Python", "icon": "SiPython", "years": 2, "projects": 5 },
-    { "name": "C#", "icon": "SiCsharp", "years": 1, "projects": 3 }
+    { "name": "Node.js", "icon": "SiNodedotjs", "sinceYear": 2022, "color": "#339933" },
+    { "name": "Express", "icon": "SiExpress", "sinceYear": 2022, "color": "#000000" },
+    { "name": "Fastify", "icon": "SiFastify", "sinceYear": 2022, "color": "#000000" },
+    { "name": "NestJS", "icon": "SiNestjs", "sinceYear": 2022, "color": "#E0234E" },
+    { 
+      "name": "Elysia", 
+      "iconUrl": "https://elysiajs.com/assets/elysia.png",
+      "sinceYear": 2025, 
+      "color": "#7B7FFF" 
+    },
+    { "name": "Laravel", "icon": "SiLaravel", "sinceYear": 2024, "color": "#FF2D20" }
   ],
   "database": [
-    { "name": "PostgreSQL", "icon": "SiPostgresql", "years": 3, "projects": 10 },
-    { "name": "MongoDB", "icon": "SiMongodb", "years": 2, "projects": 8 },
-    { "name": "MySQL", "icon": "SiMysql", "years": 4, "projects": 12 },
-    { "name": "Redis", "icon": "SiRedis", "years": 1, "projects": 4 },
-    { "name": "Prisma", "icon": "SiPrisma", "years": 2, "projects": 6 }
+    { "name": "PostgreSQL", "icon": "SiPostgresql", "sinceYear": 2022, "color": "#4169E1" },
+    { "name": "MongoDB", "icon": "SiMongodb", "sinceYear": 2023, "color": "#47A248" },
+    { "name": "MySQL", "icon": "SiMysql", "years": 3, "color": "#4479A1" },
+    { "name": "Redis", "icon": "SiRedis", "sinceYear": 2024, "color": "#DC382D" },
+    { "name": "Prisma", "icon": "SiPrisma", "sinceYear": 2023, "color": "#2D3748" },
+    { "name": "Drizzle", "icon": "SiDrizzle", "sinceYear": 2024, "color": "#C5F74F" },
+    { "name": "Supabase", "icon": "SiSupabase", "sinceYear": 2024, "color": "#3ECF8E" },
+    { 
+      "name": "Convex", 
+      "iconUrl": "https://workos.imgix.net/app-branding/environment_01K0YV0RY79WTD68FKFBP5R9C3/01K2JG5D7KDWR5NHG9GRW9AYHM", 
+      "sinceYear": 2025, 
+      "color": "#3ECF8E" 
+    }
   ],
   "tools": [
-    { "name": "Git", "icon": "SiGit", "years": 5, "projects": 30 },
-    { "name": "GitHub", "icon": "SiGithub", "years": 5, "projects": 30 },
-    { "name": "Docker", "icon": "SiDocker", "years": 2, "projects": 8 },
-    { "name": "VS Code", "icon": "SiVisualstudiocode", "years": 5, "projects": 30 },
-    { "name": "Postman", "icon": "SiPostman", "years": 4, "projects": 20 },
-    { "name": "Figma", "icon": "SiFigma", "years": 2, "projects": 15 }
+    { "name": "Git", "icon": "SiGit", "sinceYear": 2021, "color": "#F05032" },
+    { "name": "GitHub", "icon": "SiGithub", "sinceYear": 2021, "color": "#181717" },
+    { "name": "Bun", "icon": "SiBun", "sinceYear": 2024, "color": "#000000" },
+    { "name": "Docker", "icon": "SiDocker", "sinceYear": 2024, "color": "#2496ED" },
+    { 
+      "name": "Cursor", 
+      "iconUrl": "https://www.cursor.com/brand/icon.svg",
+      "sinceYear": 2024, 
+      "color": "#000000" 
+    },
+    { "name": "Postman", "icon": "SiPostman", "sinceYear": 2021, "color": "#FF6C37" },
+    { "name": "Figma", "icon": "SiFigma", "sinceYear": 2023, "color": "#F24E1E" },
+    { "name": "GraphQL", "icon": "SiGraphql", "years": 3, "color": "#E10098" },
+    { "name": "REST", "icon": "SiSwagger", "sinceYear": 2021, "color": "#85EA2D" },
+    { "name": "Jest", "icon": "SiJest", "sinceYear": 2023, "color": "#C21325" }
+  ],
+  "languages": [
+    { 
+      "name": "Português", 
+      "iconUrl": "https://flagcdn.com/br.svg",
+      "proficiency": "Nativo",
+      "color": "#009739"
+    },
+    { 
+      "name": "Inglês", 
+      "iconUrl": "https://flagcdn.com/us.svg",
+      "proficiency": "Avançado (B2)",
+      "color": "#B22234"
+    }
   ]
 }

@@ -22,7 +22,7 @@
       "pt": "Graduação em Ciência da Computação com foco em desenvolvimento de software, estruturas de dados, algoritmos, banco de dados e arquitetura de sistemas. O curso proporciona uma base sólida em programação, análise de sistemas e tecnologias emergentes.",
       "en": "Computer Science degree focused on software development, data structures, algorithms, databases and systems architecture. The program provides a solid foundation in programming, systems analysis and emerging technologies."
     },
-    "skills": ["Tecnologia da informação", "HTML", "CSS", "JavaScript", "Python"]
+    "skills": ["HTML", "CSS", "JavaScript", "Python", "Banco de dados", "Estruturas de dados", "Algoritmos"]
   },
   {
     "institution": "Escola Professor Luiz Rosa",
@@ -47,6 +47,6 @@
       "pt": "Ensino médio técnico com ênfase em informática, incluindo fundamentos de programação, desenvolvimento web, redes de computadores e manutenção de sistemas. Base inicial para a carreira em tecnologia.",
       "en": "Technical high school with emphasis on information technology, including programming fundamentals, web development, computer networks and systems maintenance. Initial foundation for a career in technology."
     },
-    "skills": ["Inglês", "Tecnologia da informação", "Lógica de Programação"]
+    "skills": ["Inglês", "Lógica de Programação", "HTML", "CSS", "JavaScript", "Python", "Fundamentos"]
   }
 ]

@@ -26,6 +26,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'luizrosa.com.br',
       },
+      {
+        protocol: 'https',
+        hostname: 'simpleicons.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cursor.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'elysiajs.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tanstack.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'workos.imgix.net',
+      }
     ],
   }
 };

@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./project-card";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/utils/section-header";
 import projectsData from "@/data/main/projects.json";
 import { MagicCardProvider } from "@/components/ui/magic-card-context";
 import { SiGithub } from "@icons-pack/react-simple-icons";

@@ -45,13 +45,15 @@
         "viewAll": "Ver Todos os Projetos"
     },
     "skills": {
-        "title": "Habilidades",
-        "subtitle": "Tecnologias e ferramentas que utilizo",
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "database": "Banco de Dados",
-        "tools": "DevOps & Ferramentas",
-        "hoverHint": "Passe o mouse sobre as habilidades para ver detalhes"
+      "title": "Habilidades",
+      "subtitle": "Tecnologias e Ferramentas",
+      "hoverHint": "Passe o mouse sobre ou toque as habilidades para ver detalhes",
+      "core": "Linguagens Core",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Banco de Dados",
+      "tools": "Ferramentas",
+      "languages": "Idiomas"
     },
     "education": {
         "title": "Educação",

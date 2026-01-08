@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react"; 
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/utils/section-header";
 import { AmbientLight } from "@/components/ui/ambient-light";
 import { SocialLinks } from "@/components/ui/social-links";
 import contactData from "@/data/main/contact.json";

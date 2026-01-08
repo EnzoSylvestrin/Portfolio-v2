@@ -2,7 +2,7 @@
 
 import { Timeline } from "@/components/ui/timeline";
 import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/section-header";
+import { SectionHeader } from "@/components/utils/section-header";
 
 import Image from "next/image";
 

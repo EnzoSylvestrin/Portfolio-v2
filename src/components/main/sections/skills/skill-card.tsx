@@ -1,13 +1,21 @@
 import { motion } from "framer-motion";
+
 import { LucideIcon } from "lucide-react";
+
 import * as SimpleIcons from "@icons-pack/react-simple-icons";
+
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import Image from "next/image";
 
 interface Skill {
   name: string;
-  icon: string;
-  years: number;
-  projects: number;
+  icon?: string;           // simple-icons icon name (optional)
+  iconSvg?: string;        // SVG string (optional)
+  iconUrl?: string;        // URL to icon image (optional)
+  sinceYear?: number;      // Auto-calculate years from this year
+  years?: number;          // OR hardcoded years (for skills not actively used)
+  proficiency?: string;    // Language proficiency level (optional)
+  color: string;
 }
 
 interface SkillCardProps {
@@ -17,31 +25,17 @@ interface SkillCardProps {
   index: number;
 }
 
-const techColors: Record<string, string> = {
-  React: "#61DAFB",
-  "Next.js": "#000000",
-  TypeScript: "#3178C6",
-  TailwindCSS: "#06B6D4",
-  JavaScript: "#F7DF1E",
-  HTML5: "#E34F26",
-  CSS3: "#1572B6",
-  "Node.js": "#339933",
-  Java: "#007396",
-  "Spring Boot": "#6DB33F",
-  Express: "#000000",
-  Python: "#3776AB",
-  "C#": "#239120",
-  PostgreSQL: "#4169E1",
-  MongoDB: "#47A248",
-  MySQL: "#4479A1",
-  Redis: "#DC382D",
-  Prisma: "#2D3748",
-  Git: "#F05032",
-  GitHub: "#181717",
-  Docker: "#2496ED",
-  "VS Code": "#007ACC",
-  Postman: "#FF6C37",
-  Figma: "#F24E1E",
+// Calculate years of experience dynamically
+const calculateYears = (sinceYear: number): number => {
+  const currentYear = new Date().getFullYear();
+  return currentYear - sinceYear;
+};
+
+// Get years for a skill (use hardcoded or calculate from sinceYear)
+const getYears = (skill: Skill): number => {
+  if (skill.years !== undefined) return skill.years;
+  if (skill.sinceYear !== undefined) return calculateYears(skill.sinceYear);
+  return 0;
 };
 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
@@ -55,7 +49,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
         ease: [0.16, 1, 0.3, 1],
         delay: index * 0.06
       }}
-      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden"
+      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
     >
       <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -83,12 +77,14 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
           </h3>
         </motion.div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 flex-1">
           {skills.map((skill, skillIndex) => {
-            const IconComponent = SimpleIcons[skill.icon as keyof typeof SimpleIcons] as React.ComponentType<{ className?: string }> | undefined;
-            const color = techColors[skill.name] || "currentColor";
-            const isDefault = color === "currentColor";
-            const isDark = ["Next.js", "Express", "GitHub", "Prisma"].includes(skill.name);
+            const IconComponent = skill.icon 
+              ? SimpleIcons[skill.icon as keyof typeof SimpleIcons] as React.ComponentType<{ className?: string }> | undefined
+              : undefined;
+            const color = skill.color;
+            const years = getYears(skill);
+            const isDark = ["Next.js", "Express", "GitHub", "Prisma", "Fastify", "Cursor", "Bun"].includes(skill.name);
 
             return (
               <Tooltip key={skill.name}>
@@ -103,33 +99,47 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
                       damping: 15,
                       delay: index * 0.06 + skillIndex * 0.02
                     }}
-                    whileHover={{ scale: 1.08, y: -2 }}
+                    whileHover={{ 
+                      scale: 1.08, 
+                      y: -2,
+                      transition: { duration: 0.2, delay: 0 }
+                    }}
                     whileTap={{ scale: 0.98 }}
                     style={{
-                      borderColor: isDefault ? undefined : `${color}50`,
-                      backgroundColor: isDefault ? undefined : `${color}20`,
-                      ["--tech-color" as any]: color
-                    }}
-                    className={`group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:shadow-md cursor-help overflow-hidden ${isDefault
-                        ? "bg-secondary border-border/50 hover:border-primary/40 hover:bg-card hover:shadow-primary/5"
-                        : "hover:bg-card"
-                      }`}
+                      borderColor: `${color}50`,
+                      backgroundColor: `${color}20`,
+                      "--tech-color": color
+                    } as React.CSSProperties}
+                    className="group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-colors duration-150 hover:shadow-md overflow-hidden hover:bg-card"
                   >
-                    {!isDefault && (
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 dark:group-hover/badge:opacity-15 transition-opacity duration-300 pointer-events-none"
-                        style={{ backgroundColor: color }}
-                      />
-                    )}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 dark:group-hover/badge:opacity-15 transition-opacity duration-200 pointer-events-none"
+                      style={{ backgroundColor: color }}
+                    />
                     <div className="relative z-10 flex items-center gap-3">
-                      {IconComponent && (
-                        <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDefault ? undefined : (isDark ? "currentColor" : color) }}>
+                      {skill.iconSvg ? (
+                        <span 
+                          className="shrink-0 w-5 h-5 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100"
+                          style={{ color: isDark ? "currentColor" : color }}
+                          dangerouslySetInnerHTML={{ __html: skill.iconSvg }}
+                        />
+                      ) : skill.iconUrl ? (
+                        <Image 
+                          src={skill.iconUrl} 
+                          alt={skill.name}
+                          width={20}
+                          height={20}
+                          className="shrink-0 w-5 h-5 object-contain"
+                        />
+                      ) : IconComponent ? (
+                        <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDark ? "currentColor" : color }}>
                           <IconComponent className="w-5 h-5" />
                         </span>
-                      )}
+                      ) : null}
+                      
                       <span
                         className={`text-base font-semibold transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100 ${isDark ? "text-foreground" : ""}`}
-                        style={{ color: isDefault || isDark ? undefined : color }}
+                        style={{ color: isDark ? undefined : color }}
                       >
                         {skill.name}
                       </span>
@@ -138,7 +148,13 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
                 </TooltipTrigger>
                 <TooltipContent>
                   <p className="text-xs font-medium">
-                    {skill.years} {skill.years === 1 ? 'ano' : 'anos'} • {skill.projects} {skill.projects === 1 ? 'projeto' : 'projetos'}
+                    {skill.proficiency ? (
+                      skill.proficiency
+                    ) : skill.sinceYear ? (
+                      `${years} ${years === 1 ? 'ano' : 'anos'} - Desde ${skill.sinceYear}`
+                    ) : skill.years ? (
+                      `${years} ${years === 1 ? 'ano' : 'anos'}`
+                    ) : null}
                   </p>
                 </TooltipContent>
               </Tooltip>

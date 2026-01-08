@@ -46,13 +46,15 @@
         "viewAll": "View All Projects"
     },
     "skills": {
-        "title": "Skills",
-        "subtitle": "Technologies and tools I work with",
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "database": "Database",
-        "tools": "DevOps & Tools",
-        "hoverHint": "Hover over skills to see details"
+      "title": "Skills",
+      "subtitle": "Technologies and Tools",
+      "hoverHint": "Hover or tap over the skills to see details",
+      "core": "Core Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "tools": "Tools",
+      "languages": "Languages"
     },
     "education": {
         "title": "Education",
