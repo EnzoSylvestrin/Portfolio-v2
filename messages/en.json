@@ -69,5 +69,12 @@
         "phone": "Phone",
         "location": "Location",
         "whatsapp": "Chat on WhatsApp"
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "Oops! The page you're looking for doesn't exist or has been moved.",
+        "homeButton": "Back to Home",
+        "backButton": "Go Back",
+        "errorCode": "Error code"
     }
 }

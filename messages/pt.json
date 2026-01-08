@@ -68,5 +68,12 @@
         "phone": "Telefone",
         "location": "Localização",
         "whatsapp": "Fale Comigo no WhatsApp"
+    },
+    "notFound": {
+        "title": "Página Não Encontrada",
+        "description": "Ops! A página que você está procurando não existe ou foi movida.",
+        "homeButton": "Voltar para Home",
+        "backButton": "Voltar",
+        "errorCode": "Código de erro"
     }
 }

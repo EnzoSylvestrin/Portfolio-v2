@@ -14,8 +14,8 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { ConsoleArt } from "@/components/ui/console-art";
 import { Footer } from "@/components/main/utils/footer";
 
-import "./reduced-motion.css";
-import "./globals.css";
+import "../styles/reduced-motion.css";
+import "../styles/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
