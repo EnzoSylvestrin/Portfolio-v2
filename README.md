@@ -1,5 +1,7 @@
 # Portfolio V2 - Enzo Sylvestrin
 
+![landing page image](landing.png)
+
 A modern, high-performance, and visually stunning developer portfolio built with the latest web technologies. This project is designed to be a premium template for showcasing skills, projects, and professional experience.
 
 **Feel free to fork, clone, and use this project for your own portfolio!** A star is appreciated if you find it useful. 🌟
