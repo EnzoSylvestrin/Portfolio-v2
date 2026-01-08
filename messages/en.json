@@ -50,5 +50,15 @@
     "education": {
         "title": "Education",
         "subtitle": "My academic journey"
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "Let's connect",
+        "cta": "Let's work together?",
+        "ctaDescription": "I'm always open to new opportunities and challenges. Get in touch and let's talk!",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "whatsapp": "Chat on WhatsApp"
     }
 }

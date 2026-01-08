@@ -7,6 +7,7 @@ import { Header } from "@/components/main/utils/header";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
+import { Footer } from "@/components/main/utils/footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -44,6 +45,7 @@ export default async function RootLayout({
           >
             <Header />
             {children}
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
