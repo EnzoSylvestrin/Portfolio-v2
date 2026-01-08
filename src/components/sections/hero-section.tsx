@@ -1,18 +1,20 @@
 "use client";
 
 import { motion } from "motion/react";
-import { HeroCard } from "../hero-card";
 import { Download, ArrowRight, ArrowDown, Linkedin } from "lucide-react";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 
-import { AuroraBackground } from "../aurora-background";
 import { SiGithub } from "@icons-pack/react-simple-icons";
-// import { RadialGradientBackground } from "./radial-gradient-background";
+
+import { AuroraBackground } from "../aurora-background";
+import { HeroCard } from "../hero-card";
+// import { RadialGradientBackground } from "../radial-gradient-background"; -- alternative that i didn't liked much
 
 export const HeroSection = () => {
   const t = useTranslations("hero");
+  const locale = useLocale();
 
   const adjectives = [
     t("adjectives.0"),
@@ -79,7 +81,7 @@ export const HeroSection = () => {
             </a>
 
             <a
-              href="/cv.pdf"
+              href={`/EnzoSylvestrin-${locale}.pdf`}
               target="_blank"
               className="inline-flex items-center gap-2 px-8 py-3 bg-card/50 border border-foreground/20 text-foreground rounded-lg font-bold transition-all hover:bg-foreground hover:text-background hover:scale-105 active:scale-95 backdrop-blur-sm"
             >

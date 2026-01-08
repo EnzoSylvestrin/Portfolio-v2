@@ -35,7 +35,7 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
       transition={{ type: "spring", stiffness: 400, damping: 32 }}
       className="fixed top-0 left-0 right-0 z-50 lg:hidden"
     >
-      <div className="flex h-16 items-center justify-between px-4 border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
+      <div className="flex h-16 items-center justify-between px-4 border-b border-primary/50 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/90 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/80">
         <Link href="/" className="flex items-center justify-center hover:opacity-80 transition-opacity">
           <Logo />
         </Link>
@@ -61,7 +61,7 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", stiffness: 400, damping: 32 }}
-            className="border-b border-border bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/80"
+            className="border-b border-primary/50 bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/80"
           >
             <div className="flex flex-col py-2">
               {navItems.map((item) => {
