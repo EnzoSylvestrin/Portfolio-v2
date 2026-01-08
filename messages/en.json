@@ -6,6 +6,7 @@
         "experience": "Experience",
         "projects": "Projects",
         "skills": "Skills",
+        "education": "Education",
         "contact": "Contact"
     },
     "colorPicker": {
@@ -45,5 +46,9 @@
         "backend": "Backend",
         "database": "Database",
         "tools": "DevOps & Tools"
+    },
+    "education": {
+        "title": "Education",
+        "subtitle": "My academic journey"
     }
 }

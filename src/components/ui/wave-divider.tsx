@@ -15,11 +15,11 @@ export function WaveDivider({ className, flip = false }: WaveDividerProps) {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className={cn("w-full relative min-h-[100px] md:min-h-[80px]", className)}
+      className={cn("w-full relative min-h-[100px] md:min-h-[80px] overflow-hidden", className)}
     >
       <svg
         className={cn(
-          "w-full h-auto",
+          "w-full h-auto block",
           flip && "rotate-180"
         )}
         viewBox="0 0 1200 150"
@@ -29,16 +29,19 @@ export function WaveDivider({ className, flip = false }: WaveDividerProps) {
         <path
           d="M0,30 C320,110 420,10 740,64 C1060,118 1080,20 1200,64 L1200,150 L0,150 Z"
           className="fill-primary/50"
+          stroke="none"
         />
         
         <path
           d="M0,12 C240,80 360,0 600,48 C840,96 960,16 1200,64 L1200,150 L0,150 Z"
           className="fill-primary/60"
+          stroke="none"
         />
         
         <path
           d="M0,85 C300,80 400,0 700,64 C1000,128 1100,48 1200,96 L1200,150 L0,150 Z"
           className="fill-background"
+          stroke="none"
         />
       </svg>
     </motion.div>

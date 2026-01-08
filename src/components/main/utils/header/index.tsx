@@ -22,6 +22,7 @@ export function Header() {
     { href: "#experiencia", label: t("experience") },
     { href: "#projetos", label: t("projects") },
     { href: "#habilidades", label: t("skills") },
+    { href: "#educacao", label: t("education") },
     { href: "#contato", label: t("contact") },
   ];
 
@@ -42,7 +43,7 @@ export function Header() {
 
   // Scroll Spy - detect active section
   useEffect(() => {
-    const sectionIds = ["inicio", "experiencia", "projetos", "habilidades", "contato"];
+    const sectionIds = ["inicio", "experiencia", "educacao", "projetos", "habilidades", "contato"];
 
     const observer = new IntersectionObserver(
       (entries) => {

@@ -1,0 +1,52 @@
+[
+  {
+    "institution": "Universidade Paulista",
+    "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQHBvbGquYuc4w/company-logo_100_100/company-logo_100_100/0/1725888891748?e=1769644800&v=beta&t=4XkWYMeeJpeS0lQ1dwhXvar8HowKWNuifywX07xbLA8",
+    "degree": {
+      "pt": "Bacharelado",
+      "en": "Bachelor's Degree"
+    },
+    "field": {
+      "pt": "Ciência da Computação",
+      "en": "Computer Science"
+    },
+    "date": {
+      "pt": "Jan 2023 - Dez 2027",
+      "en": "Jan 2023 - Dec 2027"
+    },
+    "status": {
+      "pt": "Cursando",
+      "en": "Ongoing"
+    },
+    "description": {
+      "pt": "Graduação em Ciência da Computação com foco em desenvolvimento de software, estruturas de dados, algoritmos, banco de dados e arquitetura de sistemas. O curso proporciona uma base sólida em programação, análise de sistemas e tecnologias emergentes.",
+      "en": "Computer Science degree focused on software development, data structures, algorithms, databases and systems architecture. The program provides a solid foundation in programming, systems analysis and emerging technologies."
+    },
+    "skills": ["Tecnologia da informação", "HTML", "CSS", "JavaScript", "Python"]
+  },
+  {
+    "institution": "Escola Professor Luiz Rosa",
+    "logo": "https://luizrosa.com.br/wp-content/uploads/2024/08/Logotipo-Branco-1.png",
+    "degree": {
+      "pt": "Ensino Médio",
+      "en": "High School"
+    },
+    "field": {
+      "pt": "Informática",
+      "en": "Information Technology"
+    },
+    "date": {
+      "pt": "2020 - 2022",
+      "en": "2020 - 2022"
+    },
+    "status": {
+      "pt": "Concluído",
+      "en": "Completed"
+    },
+    "description": {
+      "pt": "Ensino médio técnico com ênfase em informática, incluindo fundamentos de programação, desenvolvimento web, redes de computadores e manutenção de sistemas. Base inicial para a carreira em tecnologia.",
+      "en": "Technical high school with emphasis on information technology, including programming fundamentals, web development, computer networks and systems maintenance. Initial foundation for a career in technology."
+    },
+    "skills": ["Inglês", "Tecnologia da informação", "Lógica de Programação"]
+  }
+]

@@ -2,10 +2,10 @@
     "header": {
         "logo": "ES",
         "home": "Início",
-        "about": "Sobre",
         "experience": "Experiência",
         "projects": "Projetos",
         "skills": "Habilidades",
+        "education": "Educação",
         "contact": "Contato"
     },
     "colorPicker": {
@@ -45,5 +45,9 @@
         "backend": "Backend",
         "database": "Banco de Dados",
         "tools": "DevOps & Ferramentas"
+    },
+    "education": {
+        "title": "Educação",
+        "subtitle": "Minha jornada acadêmica"
     }
 }

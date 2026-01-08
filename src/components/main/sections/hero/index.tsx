@@ -71,13 +71,25 @@ export const HeroSection = () => {
           </div>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="#projects"
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const section = document.getElementById('projetos');
+                if (section) {
+                  const headerOffset = 80;
+                  const elementPosition = section.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className="group inline-flex items-center gap-2 px-8 py-3 bg-foreground text-background rounded-lg font-bold transition-all hover:bg-foreground/90 hover:scale-105 active:scale-95 shadow-lg shadow-foreground/20"
             >
               {t("viewProjects")}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </button>
 
             <a
               href={`/EnzoSylvestrin-${locale}.pdf`}

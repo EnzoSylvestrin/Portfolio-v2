@@ -1,4 +1,5 @@
 import { ExperienceSection } from "@/components/main/sections/experiences";
+import { EducationSection } from "@/components/main/sections/education";
 import { ProjectsSection } from "@/components/main/sections/projects";
 import { SkillsSection } from "@/components/main/sections/skills";
 import { HeroSection } from "@/components/main/sections/hero";
@@ -11,6 +12,7 @@ export default function Home() {
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
+      <EducationSection />
       <TechStack />
     </div>
   );
