@@ -56,7 +56,7 @@ export function EducationSection() {
             title={t("title")} 
             subtitle={t("subtitle")} 
             align="left"
-            className="mb-4 md:mb-6"
+            className="px-4 mb-4 md:mb-6"
           />
 
           <Timeline data={timelineData} />

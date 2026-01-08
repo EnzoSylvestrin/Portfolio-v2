@@ -28,6 +28,25 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
     navItems[0]?.href ??
     null;
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const sectionId = href.replace('#', '');
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      const headerOffset = 64; // Mobile header height is usually smaller (h-16 = 64px)
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -64, opacity: 0 }}
@@ -75,9 +94,7 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
                         ? "bg-primary/8 text-primary dark:bg-primary/20 dark:text-primary"
                         : "text-foreground/80 hover:bg-accent hover:text-foreground"
                     }`}
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                    }}
+                    onClick={(e) => handleLinkClick(e, item.href)}
                     aria-current={isActive ? "page" : undefined}
                   >
                     {item.label}
@@ -91,4 +108,3 @@ export function MobileHeader({ hidden, navItems }: MobileHeaderProps) {
     </motion.header>
   );
 }
-
