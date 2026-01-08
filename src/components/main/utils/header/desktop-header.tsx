@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import { Logo } from "./logo";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
 import { AnimatedTabs } from "../../../ui/animated-tabs";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface DesktopHeaderProps {
   hidden: boolean;
@@ -19,11 +21,29 @@ interface DesktopHeaderProps {
 }
 
 export function DesktopHeader({ hidden, navItems, activeSection, isScrollingToSectionRef }: DesktopHeaderProps) {
+  const t = useTranslations("header");
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [showColorPickerTooltip, setShowColorPickerTooltip] = useState(false);
 
   const activeKey = activeSection;
   const currentTab = hovered ?? selected ?? activeKey;
+
+  useEffect(() => {
+    const hasSeenTooltip = localStorage.getItem('hasSeenColorPickerTooltip');
+    if (!hasSeenTooltip) {
+      const timer = setTimeout(() => {
+        setShowColorPickerTooltip(true);
+        
+        setTimeout(() => {
+          setShowColorPickerTooltip(false);
+          localStorage.setItem('hasSeenColorPickerTooltip', 'true');
+        }, 5000);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <motion.header
@@ -34,7 +54,7 @@ export function DesktopHeader({ hidden, navItems, activeSection, isScrollingToSe
       }}
       transition={{ 
         y: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: hidden ? 0.2 : 0 }  // Instant when appearing, smooth when hiding
+        opacity: { duration: hidden ? 0.2 : 0 }
       }}
       className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden lg:block"
     >
@@ -66,9 +86,36 @@ export function DesktopHeader({ hidden, navItems, activeSection, isScrollingToSe
 
         <div className="ml-1 h-6 w-px bg-foreground/20 dark:bg-border" />
         <div className="flex items-center gap-3">
-          <AnimatedColorPicker />
-          <LanguageToggler />
-          <AnimatedThemeToggler />
+          <Tooltip open={showColorPickerTooltip} onOpenChange={setShowColorPickerTooltip}>
+            <TooltipTrigger asChild>
+              <div>
+                <AnimatedColorPicker />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" sideOffset={8}>
+              {t("tooltips.colorPicker")}
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div>
+                <LanguageToggler />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" sideOffset={8}>
+              {t("tooltips.language")}
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div>
+                <AnimatedThemeToggler />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" sideOffset={8}>
+              {t("tooltips.theme")}
+            </TooltipContent>
+          </Tooltip>
         </div>
       </div>
     </motion.header>

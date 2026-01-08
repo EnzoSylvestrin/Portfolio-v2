@@ -6,7 +6,12 @@
         "projects": "Projetos",
         "skills": "Habilidades",
         "education": "Educação",
-        "contact": "Contato"
+        "contact": "Contato",
+        "tooltips": {
+            "colorPicker": "Escolher cor do tema",
+            "language": "Alterar idioma",
+            "theme": "Alternar tema claro/escuro"
+        }
     },
     "colorPicker": {
         "title": "Escolha Seu Tema",

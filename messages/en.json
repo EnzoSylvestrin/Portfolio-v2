@@ -7,7 +7,12 @@
         "projects": "Projects",
         "skills": "Skills",
         "education": "Education",
-        "contact": "Contact"
+        "contact": "Contact",
+        "tooltips": {
+            "colorPicker": "Choose theme color",
+            "language": "Change language",
+            "theme": "Toggle light/dark theme"
+        }
     },
     "colorPicker": {
         "title": "Choose Your Theme",
