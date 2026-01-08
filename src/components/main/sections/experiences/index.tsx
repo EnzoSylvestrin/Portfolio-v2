@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
 import { Timeline } from "@/components/ui/timeline";
 import { motion } from "framer-motion";
+import { SectionHeader } from "@/components/ui/section-header";
 
 import Image from "next/image";
 
@@ -96,20 +97,14 @@ export function ExperienceSection() {
       />
 
       <div className="w-full px-4 md:px-8 pt-20">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="container max-w-7xl mx-auto relative z-10"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            {t("title")}
-          </h2>
-          <p className="text-foreground/60 text-lg max-w-2xl">
-            {t("subtitle")}
-          </p>
-        </motion.div>
+        <div className="container max-w-7xl mx-auto relative z-10">
+          <SectionHeader 
+            title={t("title")} 
+            subtitle={t("subtitle")} 
+            align="left"
+            className="mb-12"
+          />
+        </div>
       </div>
       <Timeline data={data} />
     </section>
