@@ -3,8 +3,8 @@ import { Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
 
+import { Header } from "@/components/main/utils/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
 
 import "./globals.css";
 

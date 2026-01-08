@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -9,7 +10,7 @@ import { Logo } from "./logo";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 import { AnimatedColorPicker } from "./animated-color-picker";
 import { LanguageToggler } from "./language-toggler";
-import { AnimatedTabs } from "./ui/animated-tabs";
+import { AnimatedTabs } from "../../../ui/animated-tabs";
 
 interface DesktopHeaderProps {
   hidden: boolean;

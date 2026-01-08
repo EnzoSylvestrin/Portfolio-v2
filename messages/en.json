@@ -28,5 +28,9 @@
     "techStack": {
         "title": "Technologies & Tools",
         "subtitle": "My preferred stack for building robust applications"
+    },
+    "experience": {
+        "title": "Professional Experience",
+        "subtitle": "My journey in the tech industry"
     }
 }

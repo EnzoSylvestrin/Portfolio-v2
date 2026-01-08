@@ -28,5 +28,9 @@
     "techStack": {
         "title": "Tecnologias & Ferramentas",
         "subtitle": "Minha stack preferida para desenvolver aplicações robustas"
+    },
+    "experience": {
+        "title": "Experiência Profissional",
+        "subtitle": "Minha jornada na indústria de tecnologia"
     }
 }

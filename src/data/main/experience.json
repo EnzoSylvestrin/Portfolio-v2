@@ -1,0 +1,70 @@
+[
+  {
+    "company": "Franquia Next Go Card",
+    "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQHIvO2Hi0WMZA/company-logo_100_100/company-logo_100_100/0/1667254163806/nextgocard_logo?e=1769644800&v=beta&t=bHe1iAqOEE8StgdHDxszFxZ75utQo3pCnyJPw4N8wJk",
+    "title": {
+      "pt": "Desenvolvedor Full Stack - Pleno",
+      "en": "Full Stack Developer - Mid-level"
+    },
+    "date": {
+      "pt": "Jul 2023 - o momento",
+      "en": "Jul 2023 - Present"
+    },
+    "description": {
+      "pt": "Como parte da equipe, realizei o desenvolvimento e manutenção de diversos sistemas de software. Minhas responsabilidades abrangeram desde a correção de bugs até o desenvolvimento de novos recursos inovadores. Alguns dos projetos notáveis incluem a criação de sistemas de autenticação com integração ao Firebase e a implementação de um robusto programa de fidelidade no aplicativo Next Go Orders. Esses sistemas desempenham um papel vital na experiência de mais de 40 mil usuários, processando centenas de milhares de interações. Durante o ciclo de vida desses projetos, atuei como desenvolvedor full-stack, empregando uma ampla variedade de tecnologias de ponta.",
+      "en": "As part of the team, I performed the development and maintenance of various software systems. My responsibilities ranged from bug fixing to the development of new innovative features. Notable projects include creating authentication systems with Firebase integration and implementing a robust loyalty program in the Next Go Orders app. These systems play a vital role in the experience of over 40,000 users, processing hundreds of thousands of interactions. During the lifecycle of these projects, I acted as a full-stack developer, employing a wide variety of cutting-edge technologies."
+    },
+    "skills": ["React", "Next.js", "Tailwind", "REST API", "NestJS", "Laravel", "TypeScript", "Postgres", "Prisma"]
+  },
+  {
+    "company": "Workana",
+    "logo": "https://media.licdn.com/dms/image/v2/C560BAQGoqkevfsjWqw/company-logo_100_100/company-logo_100_100/0/1644840712528/workana_logo?e=1769644800&v=beta&t=5zL92R2H5KbNCuNDJ0FdhqMboLBjWr8m1A_H-uCixv8",
+    "title": {
+      "pt": "Desenvolvedor Freelancer",
+      "en": "Freelance Developer"
+    },
+    "date": {
+      "pt": "Jul 2021 - o momento",
+      "en": "Jul 2021 - Present"
+    },
+    "description": {
+      "pt": "Atuando como desenvolvedor freelancer em diversos projetos, entregando soluções de alta qualidade para clientes.",
+      "en": "Working as a freelance developer on various projects, delivering high-quality solutions for clients worldwide."
+    },
+    "skills": ["React Native", "IT", "Web Development"]
+  },
+  {
+    "company": "Bitbyte Informatica",
+    "logo": "https://scontent.fvcp2-1.fna.fbcdn.net/v/t39.30808-1/277781098_364884938985010_2779530456353618968_n.png?stp=c0.0.433.433a_dst-png_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=rK8Hnkp5R7wQ7kNvwFgUqN8&_nc_oc=AdmTWULVVY2NRlpYH7Kee5lx7O73TrHflfVywTpVK0xEfS_e47b0e3jTX8mCiDs8Jt8&_nc_zt=24&_nc_ht=scontent.fvcp2-1.fna&_nc_gid=KXzmuT7Rcw9x1eaWueQ32w&oh=00_AfrtOJ1nu632RG0MbwOSIovdFBlmq5sR6_pIJhXJ8YfKUg&oe=6964F42F",
+    "title": {
+      "pt": "Desenvolvedor Júnior",
+      "en": "Junior Developer"
+    },
+    "date": {
+      "pt": "Jan 2023 - Fev 2023",
+      "en": "Jan 2023 - Feb 2023"
+    },
+    "description": {
+      "pt": "Atuei como desenvolvedor júnior contribuindo para sistemas internos e ferramentas de automação.",
+      "en": "Worked as a junior developer contributing to internal systems and automation tools."
+    },
+    "skills": ["IT", "Automation", "Development"]
+  },
+  {
+    "company": "Bitbyte Informatica",
+    "logo": "https://scontent.fvcp2-1.fna.fbcdn.net/v/t39.30808-1/277781098_364884938985010_2779530456353618968_n.png?stp=c0.0.433.433a_dst-png_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=rK8Hnkp5R7wQ7kNvwFgUqN8&_nc_oc=AdmTWULVVY2NRlpYH7Kee5lx7O73TrHflfVywTpVK0xEfS_e47b0e3jTX8mCiDs8Jt8&_nc_zt=24&_nc_ht=scontent.fvcp2-1.fna&_nc_gid=KXzmuT7Rcw9x1eaWueQ32w&oh=00_AfrtOJ1nu632RG0MbwOSIovdFBlmq5sR6_pIJhXJ8YfKUg&oe=6964F42F",
+    "title": {
+      "pt": "Estagiário de Programação",
+      "en": "Programming Intern"
+    },
+    "date": {
+      "pt": "Nov 2021 - Dez 2022",
+      "en": "Nov 2021 - Dec 2022"
+    },
+    "description": {
+      "pt": "Iniciei como estagiário, aprendendo as melhores práticas e contribuindo com tarefas de desenvolvimento de software.",
+      "en": "Started as an intern, learning best practices and contributing to software development tasks."
+    },
+    "skills": ["Programming", "Learning", "Support"]
+  }
+]

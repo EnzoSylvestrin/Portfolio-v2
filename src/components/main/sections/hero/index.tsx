@@ -8,9 +8,8 @@ import Link from "next/link";
 
 import { SiGithub } from "@icons-pack/react-simple-icons";
 
-import { AuroraBackground } from "../aurora-background";
-import { HeroCard } from "../hero-card";
-// import { RadialGradientBackground } from "../radial-gradient-background"; -- alternative that i didn't liked much
+import { AuroraBackground } from "./backgrounds/aurora";
+import { HeroCard } from "./card";
 
 export const HeroSection = () => {
   const t = useTranslations("hero");

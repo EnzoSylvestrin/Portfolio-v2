@@ -1,0 +1,103 @@
+"use client";
+
+import { Timeline } from "@/components/ui/timeline";
+import Image from "next/image";
+
+import { Briefcase, Code, GraduationCap, Laptop } from "lucide-react";
+
+import { useLocale, useTranslations } from "next-intl";
+
+import experienceData from "@/data/main/experience.json";
+
+export function ExperienceSection() {
+  const t = useTranslations("experience");
+  const locale = useLocale();
+  const lang = locale as "pt" | "en";
+
+  const icons = [
+    <Laptop key="laptop" className="w-6 h-6 text-primary" />,
+    <Code key="code" className="w-6 h-6 text-primary" />,
+    <Briefcase key="briefcase" className="w-6 h-6 text-primary" />,
+    <GraduationCap key="grad" className="w-6 h-6 text-primary" />,
+  ];
+
+  const data = experienceData.map((job, index) => {
+    const hasLogo = !!job.logo;
+
+    return {
+      title: job.date[lang],
+      content: (
+        <div className="p-4 md:p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-sm transition-all hover:shadow-lg hover:border-primary/30 group">
+          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 md:gap-y-4">
+            <div className={`md:p-3 p-2 rounded-xl border group-hover:scale-110 transition-transform duration-300 relative overflow-hidden h-fit ${hasLogo
+                ? "bg-white border-white/20"
+                : "bg-primary/10 border-primary/20"
+              }`}>
+              {hasLogo ? (
+                <Image
+                  src={job.logo}
+                  alt={job.company}
+                  width={54}
+                  height={54}
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-lg"
+                  unoptimized
+                />
+              ) : (
+                <div className="p-1">
+                  {icons[index] || <Briefcase className="w-6 h-6 text-primary" />}
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col justify-center">
+              <h3 className="text-xl md:text-2xl font-bold text-primary tracking-tight group-hover:text-primary/80 transition-colors leading-tight">
+                {job.title[lang]}
+              </h3>
+              <p className="text-foreground/80 font-medium text-base md:text-lg mt-1">
+                {job.company}
+              </p>
+            </div>
+
+            <div className="col-span-2 md:col-span-1 md:col-start-2">
+              <p className="text-foreground/70 text-sm md:text-lg leading-relaxed">
+                {job.description[lang]}
+              </p>
+            </div>
+
+            <div className="col-span-2 md:col-span-1 md:col-start-2 flex flex-wrap gap-2">
+              {job.skills.map((skill, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-1 md:px-3 md:py-1 text-[10px] md:text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20 group-hover:bg-primary/20 transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ),
+    };
+  });
+
+  return (
+    <section id="experiencia" className="w-full bg-background relative overflow-hidden">
+      <div
+        className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-40"
+        style={{ maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 80%,transparent 100%)" }}
+      />
+
+      <div className="w-full px-4 md:px-8 pt-20">
+        <div className="container max-w-7xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            {t("title")}
+          </h2>
+          <p className="text-foreground/60 text-lg max-w-2xl">
+            {t("subtitle")}
+          </p>
+        </div>
+      </div>
+      <Timeline data={data} />
+    </section>
+  );
+}

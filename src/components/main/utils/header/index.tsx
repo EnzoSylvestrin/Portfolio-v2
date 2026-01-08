@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { DesktopHeader } from "./desktop-header";
 import { MobileHeader } from "./mobile-header";
 
-export function SiteHeader() {
+export function Header() {
   const lastYRef = useRef(0);
   const { scrollY } = useScroll();
   
@@ -52,5 +52,3 @@ export function SiteHeader() {
     </>
   );
 }
-
-export default SiteHeader;
