@@ -17,7 +17,6 @@ export function Header() {
 
   const NAV_ITEMS = [
     { href: "#inicio", label: t("home") },
-    { href: "#sobre", label: t("about") },
     { href: "#experiencia", label: t("experience") },
     { href: "#projetos", label: t("projects") },
     { href: "#habilidades", label: t("skills") },

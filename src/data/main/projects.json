@@ -1,0 +1,86 @@
+[
+  {
+    "title": {
+      "pt": "Challenger-PicPay",
+      "en": "PicPay Challenge"
+    },
+    "description": {
+      "pt": "Desafio PicPay Simplificado: solução back-end usando Java, Maven, Spring Boot, Lombok, DevTools, JPA, H2 e REST API.",
+      "en": "PicPay Simplified Challenge: back-end solution using Java, Maven, Spring Boot, Lombok, DevTools, JPA, H2 and REST API."
+    },
+    "image": "",
+    "technologies": ["Java", "Spring Boot", "Maven", "JPA", "H2"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  },
+  {
+    "title": {
+      "pt": "CRUD - Rest API",
+      "en": "CRUD - Rest API"
+    },
+    "description": {
+      "pt": "Projeto completo de API REST com Java 24, Spring Boot, Maven, PostgreSQL, Lombok e documentação Swagger/OpenAPI.",
+      "en": "Complete REST API project with Java 24, Spring Boot, Maven, PostgreSQL, Lombok and Swagger/OpenAPI documentation."
+    },
+    "image": "",
+    "technologies": ["Java 24", "Spring Boot", "PostgreSQL", "Swagger"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  },
+  {
+    "title": {
+      "pt": "ProjectCardapio",
+      "en": "ProjectCardapio"
+    },
+    "description": {
+      "pt": "Cardápio Digital: sistema base com Java Spring Boot, PostgreSQL e React. Backend com entidade Food e CRUD via API REST.",
+      "en": "Digital Menu: base system with Java Spring Boot, PostgreSQL and React. Backend with Food entity and CRUD via REST API."
+    },
+    "image": "",
+    "technologies": ["Java", "Spring Boot", "PostgreSQL", "React"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  },
+  {
+    "title": {
+      "pt": "WinStock",
+      "en": "WinStock"
+    },
+    "description": {
+      "pt": "App Android de inventário com leitor de código de barras, sincronização offline-first via API REST. Integração com Winloja da TDTVS.",
+      "en": "Android inventory app with barcode reader, offline-first sync via REST API. Integration with TDTVS Winloja."
+    },
+    "image": "",
+    "technologies": ["Kotlin", "Jetpack Compose", "CameraX", "ML Kit"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  },
+  {
+    "title": {
+      "pt": "JWT Study",
+      "en": "JWT Study"
+    },
+    "description": {
+      "pt": "Projeto de estudos focado em Spring Security e autenticação JWT. Fluxos de login, filtros e controle de acesso em REST API.",
+      "en": "Study project focused on Spring Security and JWT authentication. Login flows, filters and access control in REST API."
+    },
+    "image": "",
+    "technologies": ["Java 21", "Spring Security", "JWT", "JPA"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  },
+  {
+    "title": {
+      "pt": "Spotify Clone",
+      "en": "Spotify Clone"
+    },
+    "description": {
+      "pt": "Clone do Spotify Web com HTML5, CSS3 e JavaScript. Foco em animações CSS, layout responsivo e integração com JSON Server.",
+      "en": "Spotify Web clone with HTML5, CSS3 and JavaScript. Focus on CSS animations, responsive layout and JSON Server integration."
+    },
+    "image": "",
+    "technologies": ["JavaScript", "HTML5", "CSS3", "JSON Server"],
+    "githubUrl": "https://github.com",
+    "liveUrl": ""
+  }
+]

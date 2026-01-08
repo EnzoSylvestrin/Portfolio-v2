@@ -1,6 +1,8 @@
-"use client";
+'use client'
 
 import { Timeline } from "@/components/ui/timeline";
+import { motion } from "framer-motion";
+
 import Image from "next/image";
 
 import { Briefcase, Code, GraduationCap, Laptop } from "lucide-react";
@@ -27,7 +29,13 @@ export function ExperienceSection() {
     return {
       title: job.date[lang],
       content: (
-        <div className="p-4 md:p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-sm transition-all hover:shadow-lg hover:border-primary/30 group">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+          className="p-4 md:p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-sm transition-[border-color,box-shadow] duration-300 hover:shadow-lg hover:border-primary/30 group"
+        >
           <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 md:gap-y-4">
             <div className={`md:p-3 p-2 rounded-xl border group-hover:scale-110 transition-transform duration-300 relative overflow-hidden h-fit ${hasLogo
                 ? "bg-white border-white/20"
@@ -75,7 +83,7 @@ export function ExperienceSection() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       ),
     };
   });
@@ -88,14 +96,20 @@ export function ExperienceSection() {
       />
 
       <div className="w-full px-4 md:px-8 pt-20">
-        <div className="container max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="container max-w-7xl mx-auto relative z-10"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             {t("title")}
           </h2>
           <p className="text-foreground/60 text-lg max-w-2xl">
             {t("subtitle")}
           </p>
-        </div>
+        </motion.div>
       </div>
       <Timeline data={data} />
     </section>

@@ -32,5 +32,18 @@
     "experience": {
         "title": "Experiência Profissional",
         "subtitle": "Minha jornada na indústria de tecnologia"
+    },
+    "projects": {
+        "title": "Projetos",
+        "subtitle": "Trabalhos selecionados apresentando minha expertise técnica",
+        "viewAll": "Ver Todos os Projetos"
+    },
+    "skills": {
+        "title": "Habilidades",
+        "subtitle": "Tecnologias e ferramentas que utilizo",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Banco de Dados",
+        "tools": "DevOps & Ferramentas"
     }
 }
