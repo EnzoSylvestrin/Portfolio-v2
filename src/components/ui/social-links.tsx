@@ -1,12 +1,16 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { Github, Linkedin } from "lucide-react";
+import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import { cn } from "@/lib/utils";
+import contactData from "@/data/main/contact.json";
 
 interface SocialLinksProps {
   className?: string; // Container className
   variant?: "simple" | "button";
   iconSize?: "sm" | "md" | "lg" | "xl";
+  includeWhatsapp?: boolean;
 }
 
 const socials = [
@@ -17,7 +21,7 @@ const socials = [
   },
   {
     name: "Linkedin",
-    href: "https://linkedin.com/in/enzo-sylvestrin",
+    href: "https://www.linkedin.com/in/enzo-sylvestrin-336b71221/",
     icon: Linkedin,
   },
 ];
@@ -29,10 +33,16 @@ const sizeMap = {
   xl: "w-7 h-7",
 };
 
-export function SocialLinks({ className, variant = "simple", iconSize = "md" }: SocialLinksProps) {
+export function SocialLinks({ className, variant = "simple", iconSize = "md", includeWhatsapp = false }: SocialLinksProps) {
+  const locale = useLocale() as "pt" | "en";
+  
+  const allSocials = includeWhatsapp 
+    ? [...socials, { name: "Whatsapp", href: contactData.whatsapp.href[locale], icon: SiWhatsapp }] 
+    : socials;
+
   return (
     <div className={cn("flex items-center gap-6", className)}>
-      {socials.map((social) => {
+      {allSocials.map((social) => {
         const Icon = social.icon;
         
         if (variant === "button") {
@@ -42,7 +52,7 @@ export function SocialLinks({ className, variant = "simple", iconSize = "md" }: 
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-full border border-foreground/10 dark:border-white/20 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 text-foreground/60 dark:text-foreground/90 hover:scale-110 bg-background/50 dark:bg-zinc-900/50 backdrop-blur-sm"
+              className="p-3 md:p-4 rounded-lg md:rounded-full bg-card border border-primary/40 md:border-foreground/10 dark:md:border-white/20 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 backdrop-blur-sm"
               aria-label={social.name}
             >
               <Icon className={cn(sizeMap[iconSize])} />

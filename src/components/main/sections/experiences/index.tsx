@@ -90,7 +90,7 @@ export function ExperienceSection() {
   });
 
   return (
-    <section id="experiencia" className="w-full bg-background relative overflow-hidden">
+    <section id="experience" className="w-full bg-background relative overflow-hidden">
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-40"
         style={{ maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,#000 80%,transparent 100%)" }}

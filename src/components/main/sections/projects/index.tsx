@@ -15,7 +15,7 @@ export function ProjectsSection() {
   const lang = locale as "pt" | "en";
 
   return (
-    <section id="projetos" className="w-full bg-background relative py-20 pb-0">
+    <section id="projects" className="w-full bg-background relative py-20 pb-0">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 -left-48 w-[600px] h-[600px] bg-primary/10 dark:bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 -right-48 w-[600px] h-[600px] bg-primary/10 dark:bg-primary/5 rounded-full blur-3xl" />

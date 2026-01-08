@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Download, ArrowRight, ArrowDown, Linkedin } from "lucide-react";
+import { Download, ArrowRight, ArrowDown } from "lucide-react";
 
 import { useTranslations, useLocale } from "next-intl";
-import Link from "next/link";
-
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { SocialLinks } from "@/components/ui/social-links"; 
 
 import { AuroraBackground } from "./backgrounds/aurora";
 import { HeroCard } from "./card";
@@ -24,7 +22,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section id="inicio" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 pt-16">
+    <section id="home" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-8 pt-16">
 
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#53535312_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
@@ -32,7 +30,6 @@ export const HeroSection = () => {
       />
 
       <AuroraBackground />
-      {/* <RadialGradientBackground /> */}
 
       <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10 flex-1">
         <motion.div
@@ -62,19 +59,14 @@ export const HeroSection = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="https://github.com/EnzoSylvestrin" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <SiGithub className="w-5 h-5" />
-            </Link>
-            <Link href="https://www.linkedin.com/in/enzo-sylvestrin-336b71221/" target="_blank" className="p-3 rounded-lg bg-card border border-primary/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <Linkedin className="w-5 h-5" />
-            </Link>
+            <SocialLinks variant="button" iconSize="md" includeWhatsapp={true} className="gap-4" />
           </div>
 
           <div className="flex flex-wrap gap-4 pt-2">
             <button
               onClick={(e) => {
                 e.preventDefault();
-                const section = document.getElementById('projetos');
+                const section = document.getElementById('projects');
                 if (section) {
                   const headerOffset = 80;
                   const elementPosition = section.getBoundingClientRect().top;

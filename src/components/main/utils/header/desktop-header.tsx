@@ -22,7 +22,6 @@ export function DesktopHeader({ hidden, navItems, activeSection, isScrollingToSe
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
 
-  // Use activeSection from scroll spy instead of pathname
   const activeKey = activeSection;
   const currentTab = hovered ?? selected ?? activeKey;
 

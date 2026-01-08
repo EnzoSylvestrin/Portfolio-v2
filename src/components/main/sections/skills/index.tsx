@@ -26,7 +26,7 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="habilidades" className="w-full bg-background relative overflow-hidden pb-20 pt-8 md:pt-0">
+    <section id="skills" className="w-full bg-background relative overflow-hidden pb-20 pt-8 md:pt-0">
       <WaveDivider />
       
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -19,7 +19,7 @@ export function EducationSection() {
 
   return (
     <section
-      id="educacao"
+      id="education"
       className="w-full bg-background relative overflow-hidden pt-4 md:pt-24"
     >
       <motion.div 

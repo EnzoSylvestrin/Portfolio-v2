@@ -15,15 +15,15 @@ export function Header() {
   const t = useTranslations("header");
 
   const [hidden, setHidden] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("#inicio");
+  const [activeSection, setActiveSection] = useState<string>("#home");
 
   const NAV_ITEMS = [
-    { href: "#inicio", label: t("home") },
-    { href: "#experiencia", label: t("experience") },
-    { href: "#projetos", label: t("projects") },
-    { href: "#habilidades", label: t("skills") },
-    { href: "#educacao", label: t("education") },
-    { href: "#contato", label: t("contact") },
+    { href: "#home", label: t("home") },
+    { href: "#experience", label: t("experience") },
+    { href: "#projects", label: t("projects") },
+    { href: "#skills", label: t("skills") },
+    { href: "#education", label: t("education") },
+    { href: "#contact", label: t("contact") },
   ];
 
   useEffect(() => {
@@ -31,19 +31,16 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    // Reset hidden state if we're at the top of the page when language changes
-    // This fixes the issue where changing language keeps header hidden
     const currentScroll = typeof window !== "undefined" ? window.scrollY : 0;
     if (currentScroll < 80 && hidden) {
-      // Use setTimeout to avoid synchronous setState in effect
       const timer = setTimeout(() => setHidden(false), 0);
       return () => clearTimeout(timer);
     }
-  }, [t, hidden]); // Re-run when translations change (language toggle)
+  }, [t, hidden]);
 
   // Scroll Spy - detect active section
   useEffect(() => {
-    const sectionIds = ["inicio", "experiencia", "educacao", "projetos", "habilidades", "contato"];
+    const sectionIds = ["home", "experience", "projects", "skills", "education", "contact"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -55,7 +52,7 @@ export function Header() {
         });
       },
       {
-        rootMargin: "-20% 0px -60% 0px", // Trigger when section is in top 20-40% of viewport
+        rootMargin: "-20% 0px -60% 0px", 
         threshold: 0.1
       }
     );
@@ -71,7 +68,6 @@ export function Header() {
   }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Ignore scroll events during programmatic navigation
     if (isScrollingToSectionRef.current) {
       lastYRef.current = latest;
       return;

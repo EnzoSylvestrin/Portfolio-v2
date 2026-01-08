@@ -37,7 +37,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contato" className="w-full bg-background relative overflow-hidden py-24 md:py-32">
+    <section id="contact" className="w-full bg-background relative overflow-hidden py-24 md:py-32">
       <AmbientLight />
 
       <div className="w-full px-4 md:px-8 relative z-10">
