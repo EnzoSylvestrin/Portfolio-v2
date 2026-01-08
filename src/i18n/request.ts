@@ -1,17 +1,27 @@
 import { getRequestConfig } from "next-intl/server";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 export default getRequestConfig(async () => {
   const store = await cookies();
+  const headerStore = await headers();
   
-  // Get locale from cookie (set by language-toggler component)
-  const locale = store.get("locale")?.value || "en";
+  let locale = "en";
+
+  const cookieLocale = store.get("locale")?.value;
   
-  // Validate locale (only accept 'en' or 'pt')
-  const validLocale = ["en", "pt"].includes(locale) ? locale : "en";
+  if (cookieLocale && ["en", "pt"].includes(cookieLocale)) {
+    locale = cookieLocale;
+  } else {
+    const acceptLanguage = headerStore.get("accept-language");
+    if (acceptLanguage) {
+      if (acceptLanguage.includes("pt")) {
+        locale = "pt";
+      }
+    }
+  }
 
   return {
-    locale: validLocale,
-    messages: (await import(`../../messages/${validLocale}.json`)).default,
+    locale,
+    messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

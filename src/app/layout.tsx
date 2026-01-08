@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
 
 import { Header } from "@/components/main/utils/header";
@@ -24,19 +25,22 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  
   const cookieStore = await cookies();
   const themeHue = cookieStore.get("theme-hue")?.value;
   const hue = themeHue ? parseInt(themeHue, 10) : 290; // Default purple
 
   return (
-    <html lang="pt-BR" suppressHydrationWarning style={{
+    <html lang={locale} suppressHydrationWarning style={{
       '--theme-hue': hue,
     } as React.CSSProperties}>
       <head />
       <body
         className={`${spaceGrotesk.variable} antialiased`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

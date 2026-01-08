@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SkillCard } from "./skill-card";
 import skillsData from "@/data/main/skills.json";
-import { Code2, Database, Server, Wrench } from "lucide-react";
+import { Code2, Database, Server, Wrench, MousePointerClick } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
 import { WaveDivider } from "@/components/ui/wave-divider";
 
@@ -53,8 +53,15 @@ export function SkillsSection() {
             title={t("title")} 
             subtitle={t("subtitle")} 
             align="left"
-            className="mb-16" 
+            className="mb-8" 
           />
+
+          <div className="flex items-center gap-2 text-foreground/80 mb-10 bg-primary/5 w-fit px-4 py-2 rounded-full border border-primary/10">
+            <MousePointerClick className="w-4 h-4 text-primary" />
+            <p className="text-sm font-medium">
+              {t("hoverHint")}
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
             {categories.map((category, index) => {

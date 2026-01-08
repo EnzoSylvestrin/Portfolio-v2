@@ -253,4 +253,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    background-color: transparent;
+    color: var(--primary);
+  }
 }

@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import { MapPin, Coffee } from "lucide-react";
+import { MapPin, Coffee, Eye } from "lucide-react";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { SiNodedotjs, SiReact, SiLaravel, SiTypescript } from "@icons-pack/react-simple-icons";
+import { useEffect, useState } from "react";
 
 const MorphingText = dynamic(() => import("@/components/ui/morphing-text").then((mod) => mod.MorphingText), {
   ssr: false,
@@ -16,10 +17,39 @@ interface HeroCardProps {
 
 export const HeroCard = ({ adjectives }: HeroCardProps) => {
   const t = useTranslations("hero");
+  const [visitorCount, setVisitorCount] = useState<number>(0);
 
   const yearStarted = 2021;
   const currentYear = new Date().getFullYear();
   const yearsOfExperience = currentYear - yearStarted;
+
+  useEffect(() => {
+    const trackVisit = async () => {
+      try {
+        const response = await fetch('/api/visits', {
+          method: 'POST',
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setVisitorCount(data.count);
+        }
+      } catch (error) {
+        console.error('Failed to track visit:', error);
+        try {
+          const response = await fetch('/api/visits');
+          if (response.ok) {
+            const data = await response.json();
+            setVisitorCount(data.count);
+          }
+        } catch (fallbackError) {
+          console.error('Failed to get visitor count:', fallbackError);
+        }
+      }
+    };
+
+    trackVisit();
+  }, []);
 
   return (
     <motion.div 
@@ -30,7 +60,7 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
     >
       <div className="relative group perspective-1000">
         <motion.div
-          className="relative w-[320px] h-[420px] md:w-[400px] md:h-[500px] bg-card/50 border border-border/50 rounded-3xl shadow-2xl p-8 flex flex-col items-center justify-between"
+          className="relative w-[320px] min-h-[420px] md:w-[400px] md:min-h-[480px] bg-card/50 border border-border/50 rounded-3xl shadow-2xl p-8 pb-6 flex flex-col items-center"
           style={{
             transform: "rotateY(-12deg) rotateX(5deg)",
             transformStyle: "preserve-3d",
@@ -69,13 +99,20 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between w-full gap-8 pt-6 border-t border-foreground/10">
-              <div className="flex flex-col items-center flex-1 gap-2">
+            <div className="grid grid-cols-3 gap-4 w-full pt-6 border-t border-foreground/10">
+              <div className="flex flex-col items-center gap-2">
                 <span className="text-2xl md:text-3xl font-bold text-primary">{yearsOfExperience}+</span>
                 <span className="text-xs text-foreground/70 uppercase tracking-wider font-semibold">{t("yrsXp")}</span>
               </div>
-              <div className="h-10 w-px bg-foreground/10" />
-              <div className="flex flex-col items-center flex-1 gap-2" title="Caffeine Level: High">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-2xl md:text-3xl font-bold text-primary">
+                  {visitorCount > 0 ? visitorCount.toLocaleString() : '...'}
+                </span>
+                <span className="text-xs text-foreground/70 uppercase tracking-wider font-semibold flex items-center gap-1">
+                  {t("visitors")} <Eye className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="flex flex-col items-center gap-2" title="Caffeine Level: High">
                 <span className="text-2xl md:text-3xl font-bold text-primary">∞</span>
                 <span className="text-xs text-foreground/70 uppercase tracking-wider font-semibold flex items-center gap-1">
                   {t("coffees")} <Coffee className="w-3.5 h-3.5" />
@@ -85,7 +122,7 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
           </div>
 
           <div
-            className="w-full pt-12 z-20 flex justify-center"
+            className="w-full pt-8 mt-auto z-20 flex justify-center"
             style={{ transform: "translateZ(60px)" }}
           >
             <MorphingText

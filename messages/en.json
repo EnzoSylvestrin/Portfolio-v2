@@ -24,6 +24,7 @@
         "location": "Brazil",
         "adjectives": ["Freelancer", "Mid-level", "Full Stack", "Creative", "Nerd"],
         "yrsXp": "Yrs XP",
+        "visitors": "Visitors",
         "coffees": "Coffees"
     },
     "techStack": {
@@ -45,7 +46,8 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "database": "Database",
-        "tools": "DevOps & Tools"
+        "tools": "DevOps & Tools",
+        "hoverHint": "Hover over skills to see details"
     },
     "education": {
         "title": "Education",

@@ -21,8 +21,9 @@
         "downloadCv": "Baixar CV",
         "yearsOld": "Anos",
         "location": "Brasil",
-        "adjectives": ["Freelancer", "Mid-level", "Full Stack", "Creative", "Nerd"],
+        "adjectives": ["Freelancer", "Pleno", "Full Stack", "Criativo", "Nerd"],
         "yrsXp": "Anos XP",
+        "visitors": "Visitas",
         "coffees": "Cafés"
     },
     "techStack": {
@@ -44,7 +45,8 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "database": "Banco de Dados",
-        "tools": "DevOps & Ferramentas"
+        "tools": "DevOps & Ferramentas",
+        "hoverHint": "Passe o mouse sobre as habilidades para ver detalhes"
     },
     "education": {
         "title": "Educação",
