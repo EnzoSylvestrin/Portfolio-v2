@@ -7,6 +7,9 @@ import { cookies } from "next/headers";
 import { Header } from "@/components/main/utils/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getPersonSchema, getWebSiteSchema } from "@/lib/schema";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { BackToTop } from "@/components/ui/back-to-top";
+import { ConsoleArt } from "@/components/ui/console-art";
 
 import "./globals.css";
 import { Footer } from "@/components/main/utils/footer";
@@ -78,9 +81,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
-  },
 };
 
 
@@ -124,9 +124,12 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <ConsoleArt />
+            <ScrollProgress />
             <Header />
             {children}
             <Footer />
+            <BackToTop />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

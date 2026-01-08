@@ -26,6 +26,8 @@
 - ✅ **Tooltips Informativos**: Guias visuais para recursos do site
 - ✅ **Responsive Design**: Otimizado para mobile, tablet e desktop
 - ✅ **Efeitos de Background**: Aurora, Meteors e iluminação ambiente
+- ✅ **Scroll Progress Bar**: Barra de progresso sutil no topo da página
+- ✅ **Botão "Voltar ao Topo"**: Aparece inteligentemente quando o usuário demonstra intenção de retornar
 
 ### 🌍 Internacionalização
 - ✅ **Multilíngue**: Suporte completo para Português e Inglês
@@ -38,20 +40,23 @@
 - ✅ **Schema.org**: JSON-LD estruturado (Person + WebSite)
 - ✅ **Sitemap & Robots.txt**: Indexação otimizada
 - ✅ **PWA Ready**: Manifest e ícones configurados
-- ✅ **Cache Inteligente**: Next.js cache API com revalidação
+- ✅ **Cache Inteligente**: Next.js cache API com revalidação (60s)
+- ✅ **Imagem Open Graph**: Preview profissional para redes sociais
 
 ### 📊 Features Interativas
-- ✅ **Contador de Visitas**: Redis + Upstash para tracking único por IP
+- ✅ **Contador de Visitas**: Redis + Upstash para tracking único por IP (24h)
 - ✅ **Navegação Scroll Spy**: Menu atualiza conforme scroll
 - ✅ **Animações Suaves**: Framer Motion para transições premium
 - ✅ **Cards de Projeto**: Magic Cards com hover effects
 - ✅ **Skills com Tooltips**: Informações detalhadas ao passar o mouse
+- ✅ **Console Easter Egg**: ASCII art com links de contato para desenvolvedores curiosos
 
 ### 🎨 Sistema de Temas
 - ✅ **Color Picker Animado**: Modal customizado com 10 cores pré-definidas
 - ✅ **Persistência**: Tema salvo em cookies
 - ✅ **CSS Variables**: Sistema dinâmico baseado em HSL
 - ✅ **Transições**: View Transitions API para mudanças suaves
+- ✅ **Auto-hint Inicial**: Tooltip da paleta aparece na primeira visita
 
 ---
 
@@ -168,6 +173,9 @@ portfolio-v2/
 │   │   │   └── utils/         # Header, Footer
 │   │   ├── ui/                # Componentes UI reutilizáveis
 │   │   │   ├── tooltip.tsx    # Sistema de tooltips
+│   │   │   ├── scroll-progress.tsx # Barra de progresso
+│   │   │   ├── back-to-top.tsx     # Botão voltar ao topo
+│   │   │   ├── console-art.tsx     # ASCII art no console
 │   │   │   └── ...
 │   │   └── theme-provider.tsx # Provedor de tema
 │   ├── data/                  # Dados JSON
