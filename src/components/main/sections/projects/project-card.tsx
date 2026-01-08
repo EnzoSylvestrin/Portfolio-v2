@@ -66,7 +66,7 @@ export function ProjectCard({
             {title}
           </h3>
 
-          <p className="text-foreground/70 text-sm leading-relaxed line-clamp-3">
+          <p className="text-foreground/90 dark:text-foreground/70 text-sm leading-relaxed line-clamp-3">
             {description}
           </p>
 

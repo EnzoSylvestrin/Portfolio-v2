@@ -26,7 +26,7 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="w-full bg-background relative overflow-hidden pb-20">
+    <section id="skills" className="w-full bg-background relative overflow-hidden pb-20 pt-8 md:pt-0">
       {/* Wave divider */}
       <WaveDivider className="-mt-1" />
       

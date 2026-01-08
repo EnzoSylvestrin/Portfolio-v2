@@ -47,27 +47,41 @@ const techColors: Record<string, string> = {
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration: 0.3,
+        ease: [0.16, 1, 0.3, 1],
+        delay: index * 0.06
+      }}
       className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden"
     >
       <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-500" />
-      
+
       <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-primary/20 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
-      
+
       <div className="relative">
-        <div className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative">
-           <div className="absolute bottom-[-2px] left-0 h-[2px] w-1/3 bg-linear-to-r from-primary/50 to-transparent opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:w-full" />
-           
-          <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.2, delay: index * 0.06 + 0.1 }}
+          className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative"
+        >
+          <div className="absolute bottom-[-2px] left-0 h-[2px] w-full bg-primary/50 opacity-50 group-hover:opacity-100 transition-all duration-300" />
+
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20"
+          >
             <Icon className="w-6 h-6 text-primary" />
-          </div>
+          </motion.div>
           <h3 className="text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
             {title}
           </h3>
-        </div>
+        </motion.div>
 
         <div className="flex flex-wrap gap-4">
           {skills.map((skill, skillIndex) => {
@@ -75,29 +89,35 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
             const color = techColors[skill.name] || "currentColor";
             const isDefault = color === "currentColor";
             const isDark = ["Next.js", "Express", "GitHub", "Prisma"].includes(skill.name);
-            
+
             return (
               <Tooltip key={skill.name}>
                 <TooltipTrigger asChild>
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + skillIndex * 0.05 }}
+                    initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 15,
+                      delay: index * 0.06 + skillIndex * 0.02
+                    }}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     style={{
                       borderColor: isDefault ? undefined : `${color}50`,
                       backgroundColor: isDefault ? undefined : `${color}20`,
                       ["--tech-color" as any]: color
                     }}
-                    className={`group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:scale-105 hover:shadow-md cursor-help overflow-hidden ${
-                      isDefault 
-                        ? "bg-secondary border-border/50 hover:border-primary/40 hover:bg-card hover:shadow-primary/5" 
+                    className={`group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:shadow-md cursor-help overflow-hidden ${isDefault
+                        ? "bg-secondary border-border/50 hover:border-primary/40 hover:bg-card hover:shadow-primary/5"
                         : "hover:bg-card"
-                    }`}
+                      }`}
                   >
                     {!isDefault && (
-                      <div 
-                        className="absolute inset-0 opacity-0 group-hover:opacity-20 dark:group-hover:opacity-15 transition-opacity duration-300 pointer-events-none"
+                      <div
+                        className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 dark:group-hover/badge:opacity-15 transition-opacity duration-300 pointer-events-none"
                         style={{ backgroundColor: color }}
                       />
                     )}
@@ -107,7 +127,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
                           <IconComponent className="w-5 h-5" />
                         </span>
                       )}
-                      <span 
+                      <span
                         className={`text-base font-semibold transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100 ${isDark ? "text-foreground" : ""}`}
                         style={{ color: isDefault || isDark ? undefined : color }}
                       >

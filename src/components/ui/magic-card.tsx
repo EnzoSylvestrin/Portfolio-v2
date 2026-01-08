@@ -35,7 +35,7 @@ export function MagicCard({
   }, [mousePosition.x, mousePosition.y, mouseX, mouseY])
 
   return (
-    <div ref={cardRef} className={cn("group relative overflow-hidden border border-primary/20", className)}>
+    <div ref={cardRef} className={cn("group relative overflow-hidden border border-primary/40 dark:border-primary/30", className)}>
       <div className="bg-background absolute inset-0 rounded-[inherit]" />
       <motion.div
         className="pointer-events-none absolute inset-0 rounded-[inherit]"
