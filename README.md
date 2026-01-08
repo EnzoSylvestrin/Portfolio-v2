@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio V2 - Enzo Sylvestrin
 
-## Getting Started
+A modern, high-performance, and visually stunning developer portfolio built with the latest web technologies. This project is designed to be a premium template for showcasing skills, projects, and professional experience.
 
-First, run the development server:
+**Feel free to fork, clone, and use this project for your own portfolio!** A star is appreciated if you find it useful. 🌟
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Language:** TypeScript
+- **Internationalization:** `next-intl` (English & Portuguese included)
+- **Theming:** `next-themes` (Dark/Light mode support)
+- **UI Components:** Built with [Radix UI](https://www.radix-ui.com/) & [Shadcn/ui](https://ui.shadcn.com/) inspiration.
+- **Icons:** `lucide-react` & `simple-icons`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Standardized UI:** Reusable `SectionHeader`, unified typography, and consistent spacing.
+- **Dynamic Theming:** Smooth transitions between dark and light modes with custom color hues.
+- **Interactive Backgrounds:** Aurora effect, Meteors, and Ambient Lighting for a polished look.
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **Smooth Navigation:** Scroll spy navigation with smooth scrolling (mobile & desktop).
+- **Project Showcase:** Magic Cards implementation for project highlights.
+- **Centralized Data:** Easy to update JSON data files for Skills, Projects, and Contact info.
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/EnzoSylvestrin/portfolio-v2.git
+   cd portfolio-v2
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   bun dev
+   ```
 
-## Deploy on Vercel
+4. **Open [http://localhost:3000](http://localhost:3000)** to view it in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app`: App Router pages and layouts.
+- `src/components/main`: Core sections (Hero, Projects, Skills, etc.).
+- `src/components/ui`: Reusable UI components.
+- `src/data`: JSON files for content (easy to edit).
+- `messages`: Translation files (`en.json`, `pt.json`).
+
+## 📄 License
+
+This project is open-source and ready for you to customize. 
+
+---
+
+*Built with ❤️ by [Enzo Sylvestrin](https://github.com/EnzoSylvestrin)*
