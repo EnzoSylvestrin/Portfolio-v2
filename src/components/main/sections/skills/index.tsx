@@ -26,16 +26,13 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="w-full bg-background relative overflow-hidden pb-20 pt-8 md:pt-0">
-      {/* Wave divider */}
+    <section id="habilidades" className="w-full bg-background relative overflow-hidden pb-20 pt-8 md:pt-0">
       <WaveDivider className="-mt-1" />
       
-      {/* Meteors effect container */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Meteors number={30} />
       </div>
       
-      {/* Refined grid background */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
           className="absolute inset-0 opacity-[0.02]"
@@ -47,7 +44,6 @@ export function SkillsSection() {
             backgroundSize: '80px 80px',
           }} 
         />
-        {/* Gradient overlay for depth */}
         <div className="absolute inset-0 bg-linear-to-b from-background via-transparent to-background" />
       </div>
 

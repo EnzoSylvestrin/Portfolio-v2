@@ -47,7 +47,7 @@ const techColors: Record<string, string> = {
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      initial={{ opacity: 0.5, y: 20, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
@@ -63,7 +63,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
 
       <div className="relative">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0.6, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.2, delay: index * 0.06 + 0.1 }}
@@ -94,7 +94,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
               <Tooltip key={skill.name}>
                 <TooltipTrigger asChild>
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.7, y: 10 }}
+                    initial={{ opacity: 0.4, scale: 0.85, y: 5 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{

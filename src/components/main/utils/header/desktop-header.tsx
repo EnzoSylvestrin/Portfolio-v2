@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import { motion } from "motion/react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import { Logo } from "./logo";
@@ -15,25 +14,29 @@ import { AnimatedTabs } from "../../../ui/animated-tabs";
 interface DesktopHeaderProps {
   hidden: boolean;
   navItems: Array<{ href: string; label: string }>;
+  activeSection: string;
+  isScrollingToSectionRef: React.RefObject<boolean>;
 }
 
-export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
-  const pathname = usePathname();
-
+export function DesktopHeader({ hidden, navItems, activeSection, isScrollingToSectionRef }: DesktopHeaderProps) {
   const [hovered, setHovered] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
 
-  const activeKey =
-    navItems.find((n) => pathname === n.href)?.href ??
-    navItems[0]?.href ??
-    null;
+  // Use activeSection from scroll spy instead of pathname
+  const activeKey = activeSection;
   const currentTab = hovered ?? selected ?? activeKey;
 
   return (
     <motion.header
       initial={{ y: -64, opacity: 0 }}
-      animate={{ y: hidden ? -64 : 0, opacity: hidden ? 0.5 : 1 }}
-      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+      animate={{ 
+        y: hidden ? -64 : 0, 
+        opacity: hidden ? 0 : 1 
+      }}
+      transition={{ 
+        y: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: hidden ? 0.2 : 0 }  // Instant when appearing, smooth when hiding
+      }}
       className="fixed top-3 left-1/2 z-50 -translate-x-1/2 px-3 pointer-events-none hidden lg:block"
     >
       <div className="pointer-events-auto flex h-14 items-center gap-4 rounded-full border border-primary/30 bg-background/80 px-5 shadow-lg backdrop-blur-xl supports-backdrop-filter:bg-background/70 dark:bg-card/80 dark:border-primary/30 dark:supports-backdrop-filter:bg-card/70">
@@ -56,6 +59,7 @@ export function DesktopHeader({ hidden, navItems }: DesktopHeaderProps) {
                 isActive={isActive}
                 isCurrent={isCurrent}
                 layoutId="tab-hover-desktop"
+                isScrollingToSectionRef={isScrollingToSectionRef}
               />
             );
           })}
