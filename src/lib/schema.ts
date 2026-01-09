@@ -28,7 +28,7 @@ export function getPersonSchema(): WithContext<Person> {
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',
-      name: 'FATEC Jundiaí',
+      name: 'Universidade Paulista',
     },
   };
 }

@@ -6,6 +6,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { Header } from "@/components/main/utils/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getPersonSchema, getWebSiteSchema } from "@/lib/schema";
@@ -129,6 +131,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <SpeedInsights />
             <MotionConfig reducedMotion="user">
               <ConsoleArt />
               <ScrollProgress />

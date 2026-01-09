@@ -156,14 +156,13 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0.4, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.4,
-        delay: index * 0.1
+        duration: 0.5,
+        delay: index * 0.15
       }}
-      style={{ willChange: 'transform, opacity' }}
       className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
     >
       <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-500" />
@@ -171,26 +170,16 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
       <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-primary/20 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
 
       <div className="relative">
-        <motion.div
-          initial={{ opacity: 0.6, x: -10 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.2, delay: index * 0.05 + 0.1 }}
-          className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative"
-        >
+        <div className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative">
           <div className="absolute bottom-[-2px] left-0 h-[2px] w-full bg-primary/50 opacity-50 group-hover:opacity-100 transition-all duration-300" />
 
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ duration: 0.2 }}
-            className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20"
-          >
+          <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20">
             <Icon className="w-6 h-6 text-primary" />
-          </motion.div>
+          </div>
           <h3 className="text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
             {title}
           </h3>
-        </motion.div>
+        </div>
 
         <div className="flex flex-wrap gap-4 flex-1">
           {skills.map((skill) => (
