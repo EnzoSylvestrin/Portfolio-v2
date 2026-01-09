@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { GraduationCap, CheckCircle2, Clock } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
+import { HighlightedText } from "@/lib/highlight-parser";
 
 interface EducationData {
   institution: string;
@@ -104,9 +105,9 @@ export function EducationCard({ education, index }: EducationCardProps) {
           <StatusBadge status={education.status[locale]} isOngoing={isOngoing} />
         </div>
 
-        <p className="text-sm md:text-base text-foreground/90 leading-relaxed mb-4 md:mb-6 relative z-10">
-          {education.description[locale]}
-        </p>
+        <div className="text-sm md:text-base text-foreground/90 leading-relaxed mb-4 md:mb-6 relative z-10">
+          <HighlightedText text={education.description[locale]} />
+        </div>
 
         {education.skills && education.skills.length > 0 && (
           <div className="relative z-10">

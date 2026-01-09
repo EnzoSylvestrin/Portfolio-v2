@@ -62,7 +62,7 @@
     "contact": {
         "title": "Contato",
         "subtitle": "Vamos nos conectar",
-        "cta": "Vamos trabalhar juntos?",
+        "cta": "[[Vamos trabalhar juntos?]]",
         "ctaDescription": "Estou sempre aberto a novas oportunidades e desafios. Entre em contato e vamos conversar!",
         "email": "Email",
         "phone": "Telefone",

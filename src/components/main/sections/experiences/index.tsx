@@ -70,7 +70,7 @@ export function ExperienceSection() {
             </div>
 
             <div className="col-span-2 md:col-span-1 md:col-start-2">
-              <div className="text-foreground/70 text-sm md:text-lg leading-relaxed">
+              <div className="text-foreground/90 text-sm md:text-lg leading-relaxed">
                 <HighlightedText text={job.description[lang]} />
               </div>
             </div>

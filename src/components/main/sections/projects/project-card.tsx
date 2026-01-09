@@ -3,6 +3,9 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
+import { HighlightedText } from "@/lib/highlight-parser";
+
+import { LinkPreview } from "@/components/ui/link-preview";
 import { MagicCard } from "@/components/ui/magic-card";
 
 import Image from "next/image";
@@ -43,15 +46,16 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+      className="h-full"
     >
-      <MagicCard className="rounded-2xl overflow-hidden">
-        <div className={`relative h-48 bg-linear-to-br ${gradient} overflow-hidden`}>
+      <MagicCard className="h-full flex flex-col rounded-2xl overflow-hidden">
+        <div className={`relative h-64 bg-linear-to-br ${gradient} overflow-hidden`}>
           {image ? (
             <Image
               src={image}
               alt={title}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               unoptimized
             />
           ) : (
@@ -61,47 +65,48 @@ export function ProjectCard({
           )}
         </div>
 
-        <div className="p-6 space-y-4">
-          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-            {title}
-          </h3>
+        <div className="p-6 flex-1 flex flex-col min-h-0">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+              {title}
+            </h3>
 
-          <p className="text-foreground/90 dark:text-foreground/70 text-sm leading-relaxed line-clamp-3">
-            {description}
-          </p>
+            <div className="text-foreground/90 dark:text-foreground/90 text-base leading-relaxed">
+              <HighlightedText text={description} />
+            </div>
 
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, i) => (
-              <span
-                key={i}
-                className="px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20"
-              >
-                {tech}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-2">
+              {technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="flex gap-3 pt-2">
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-foreground/5 hover:bg-foreground/10 transition-colors"
-            >
-              <SiGithub className="w-4 h-4" />
-              <span>Ver Código</span>
-            </a>
-
-            {liveUrl && (
+          <div className="flex gap-3 mt-auto pt-4">
+            {githubUrl && (
               <a
-                href={liveUrl}
+                href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-foreground/5 hover:bg-foreground/10 transition-colors"
               >
-                <ExternalLink className="w-4 h-4" />
-                <span>Ver Demo</span>
+                <SiGithub className="w-4 h-4" />
+                <span>Ver Código</span>
               </a>
+            )}
+
+            {liveUrl && (
+              <LinkPreview url={liveUrl} className="no-underline">
+                <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors cursor-pointer">
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Ver Demo</span>
+                </div>
+              </LinkPreview>
             )}
           </div>
         </div>

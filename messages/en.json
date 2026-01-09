@@ -63,7 +63,7 @@
     "contact": {
         "title": "Contact",
         "subtitle": "Let's connect",
-        "cta": "Let's work together?",
+        "cta": "[[Let's work together?]]",
         "ctaDescription": "I'm always open to new opportunities and challenges. Get in touch and let's talk!",
         "email": "Email",
         "phone": "Phone",

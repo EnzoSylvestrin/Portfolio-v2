@@ -1,86 +1,86 @@
 [
   {
     "title": {
-      "pt": "Challenger-PicPay",
-      "en": "PicPay Challenge"
+      "pt": "NGFlux - Automação de Marketing",
+      "en": "NGFlux - Marketing Automation"
     },
     "description": {
-      "pt": "Desafio PicPay Simplificado: solução back-end usando Java, Maven, Spring Boot, Lombok, DevTools, JPA, H2 e REST API.",
-      "en": "PicPay Simplified Challenge: back-end solution using Java, Maven, Spring Boot, Lombok, DevTools, JPA, H2 and REST API."
+      "pt": "Ecossistema que transforma [[avaliações de clientes]] em [[posts/anúncios]]. Utiliza [[IA]] para [[análise de sentimentos]] e oferece um [[dashboard]] com atualizações [[em tempo real via WebSockets]]. Gestão completa de tráfego e [[campanhas Meta Ads automatizadas]].",
+      "en": "Ecosystem that converts [[customer reviews]] into [[posts/ads]]. Uses [[AI]] for [[sentiment analysis]] and offers a [[dashboard]] with [[real-time updates via WebSockets]]. Complete traffic management and [[automated Meta Ads campaigns]]."
     },
-    "image": "",
-    "technologies": ["Java", "Spring Boot", "Maven", "JPA", "H2"],
-    "githubUrl": "https://github.com",
+    "image": "/projects/ngflux.png",
+    "technologies": ["NestJS", "Next.js", "Docker", "WebSockets", "OpenAI API", "Meta Graph API"],
+    "githubUrl": "",
+    "liveUrl": "https://ngflux.gruponextgo.com"
+  },
+  {
+    "title": {
+      "pt": "Save Ideas - Captura de Ideias por Voz",
+      "en": "Save Ideas - Voice Idea Capture"
+    },
+    "description": {
+      "pt": "App mobile que captura ideias de projetos através de [[gravação de áudio]]. Utiliza [[OpenAI Whisper]] para [[transcrição automática]] e [[GPT-4o-mini]] para gerar [[ideias estruturadas em markdown]]. Backend [[real-time com Convex]] e suporte a [[Android App Shortcuts]] para acesso rápido.",
+      "en": "Mobile app that captures project ideas through [[audio recording]]. Uses [[OpenAI Whisper]] for [[automatic transcription]] and [[GPT-4o-mini]] to generate [[structured ideas in markdown]]. [[Real-time backend with Convex]] and support for [[Android App Shortcuts]] for quick access."
+    },
+    "image": "/projects/save-ideas.png",
+    "technologies": ["React Native", "Expo", "TypeScript", "Convex", "OpenAI API", "Expo Router"],
+    "githubUrl": "https://github.com/EnzoSylvestrin/save-ideas",
     "liveUrl": ""
   },
   {
     "title": {
-      "pt": "CRUD - Rest API",
-      "en": "CRUD - Rest API"
+      "pt": "MoveStats - Navegação para Deficientes Visuais",
+      "en": "MoveStats - Navigation for Visually Impaired"
     },
     "description": {
-      "pt": "Projeto completo de API REST com Java 24, Spring Boot, Maven, PostgreSQL, Lombok e documentação Swagger/OpenAPI.",
-      "en": "Complete REST API project with Java 24, Spring Boot, Maven, PostgreSQL, Lombok and Swagger/OpenAPI documentation."
+      "pt": "App mobile de [[acessibilidade]] que auxilia [[deficientes visuais]] na locomoção urbana através de [[feedback por áudio]]. Localiza e [[reproduz audialmente]] estabelecimentos próximos com [[filtros por categoria]]. [[Finalista na Febrace 2022]] e [[2º lugar na FEMIC 2022]] na categoria técnica. Desenvolvido com React Native.",
+      "en": "[[Accessibility]] mobile app that helps [[visually impaired users]] navigate urban environments through [[audio feedback]]. Locates and [[audibly announces]] nearby establishments with [[category filters]]. [[Febrace 2022 Finalist]] and [[2nd place at FEMIC 2022]] in the technical category. Built with React Native."
     },
-    "image": "",
-    "technologies": ["Java 24", "Spring Boot", "PostgreSQL", "Swagger"],
-    "githubUrl": "https://github.com",
-    "liveUrl": ""
+    "image": "/projects/movestats.png",
+    "technologies": ["React Native", "HTML", "CSS", "JavaScript", "Styled Components", "Framer Motion"],
+    "githubUrl": "https://github.com/EnzoSylvestrin/Move-Stats",
+    "liveUrl": "https://movestats.vercel.app"
   },
   {
     "title": {
-      "pt": "ProjectCardapio",
-      "en": "ProjectCardapio"
+      "pt": "Party Items - Planejamento Colaborativo de Festas",
+      "en": "Party Items - Collaborative Party Planning"
     },
     "description": {
-      "pt": "Cardápio Digital: sistema base com Java Spring Boot, PostgreSQL e React. Backend com entidade Food e CRUD via API REST.",
-      "en": "Digital Menu: base system with Java Spring Boot, PostgreSQL and React. Backend with Food entity and CRUD via REST API."
+      "pt": "Aplicação web para [[organizar festas de forma colaborativa]]. Permite criar [[menus personalizados]] e adicionar [[itens desejados por cada participante]]. Interface moderna com [[autenticação de usuários]], [[temas personalizáveis]] e [[gerenciamento em tempo real]]. Desenvolvido com Next.js 14.",
+      "en": "Web app for [[collaborative party planning]]. Allows creating [[custom menus]] and adding [[items wanted by each participant]]. Modern interface with [[user authentication]], [[customizable themes]], and [[real-time management]]. Built with Next.js 14."
     },
-    "image": "",
-    "technologies": ["Java", "Spring Boot", "PostgreSQL", "React"],
-    "githubUrl": "https://github.com",
-    "liveUrl": ""
+    "image": "/projects/party-items.png",
+    "technologies": ["Next.js 14", "TypeScript", "Prisma", "TailwindCSS", "Shadcn/ui"],
+    "githubUrl": "https://github.com/EnzoSylvestrin/party-items",
+    "liveUrl": "https://party-items.vercel.app"
   },
   {
     "title": {
-      "pt": "WinStock",
-      "en": "WinStock"
+      "pt": "EcoGenius - Calculadora de Pegada de Carbono",
+      "en": "EcoGenius - Carbon Footprint Calculator"
     },
     "description": {
-      "pt": "App Android de inventário com leitor de código de barras, sincronização offline-first via API REST. Integração com Winloja da TDTVS.",
-      "en": "Android inventory app with barcode reader, offline-first sync via REST API. Integration with TDTVS Winloja."
+      "pt": "Site de [[conscientização ambiental]] que alerta sobre as [[mudanças climáticas]] e oferece uma [[calculadora de pegada de carbono]]. Permite calcular emissões em diferentes áreas como transporte, casa, alimentação e consumo. Interface moderna com [[animações fluidas]] e design focado em [[sustentabilidade]].",
+      "en": "[[Environmental awareness]] website that alerts about [[climate change]] and offers a [[carbon footprint calculator]]. Allows calculating emissions in different areas such as transportation, home, food, and consumption. Modern interface with [[smooth animations]] and design focused on [[sustainability]]."
     },
-    "image": "",
-    "technologies": ["Kotlin", "Jetpack Compose", "CameraX", "ML Kit"],
-    "githubUrl": "https://github.com",
-    "liveUrl": ""
+    "image": "/projects/eco-genius.png",
+    "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Radix UI"],
+    "githubUrl": "https://github.com/EnzoSylvestrin/EcoGenius",
+    "liveUrl": "https://eco-genius.vercel.app"
   },
   {
     "title": {
-      "pt": "JWT Study",
-      "en": "JWT Study"
+      "pt": "NGNotifica - Sistema Centralizado de Notificações",
+      "en": "NGNotifica - Centralized Notification System"
     },
     "description": {
-      "pt": "Projeto de estudos focado em Spring Security e autenticação JWT. Fluxos de login, filtros e controle de acesso em REST API.",
-      "en": "Study project focused on Spring Security and JWT authentication. Login flows, filters and access control in REST API."
+      "pt": "Sistema centralizado que unifica as [[APIs v1 e v2 da NextGo Marketing]] para [[envios de mensagens no WhatsApp]]. Permite aos clientes [[conectar múltiplos sistemas NextGo]] em um único lugar com [[granularidade para definir qual API usar]] por sistema. Oferece [[integração oficial com a Meta WhatsApp API]] e [[gerenciamento de workspaces]] para organização empresarial.",
+      "en": "Centralized system that unifies [[NextGo Marketing APIs v1 and v2]] for [[WhatsApp message sending]]. Allows clients to [[connect multiple NextGo systems]] in one place with [[granular control to define which API to use]] per system. Offers [[official Meta WhatsApp API integration]] and [[workspace management]] for business organization."
     },
-    "image": "",
-    "technologies": ["Java 21", "Spring Security", "JWT", "JPA"],
-    "githubUrl": "https://github.com",
-    "liveUrl": ""
-  },
-  {
-    "title": {
-      "pt": "Spotify Clone",
-      "en": "Spotify Clone"
-    },
-    "description": {
-      "pt": "Clone do Spotify Web com HTML5, CSS3 e JavaScript. Foco em animações CSS, layout responsivo e integração com JSON Server.",
-      "en": "Spotify Web clone with HTML5, CSS3 and JavaScript. Focus on CSS animations, responsive layout and JSON Server integration."
-    },
-    "image": "",
-    "technologies": ["JavaScript", "HTML5", "CSS3", "JSON Server"],
-    "githubUrl": "https://github.com",
+    "image": "/projects/ngnotifica.png",
+    "technologies": ["NestJS", "Next.js", "TypeScript", "Prisma", "Meta WhatsApp API", "TailwindCSS"],
+    "githubUrl": "",
     "liveUrl": ""
   }
 ]

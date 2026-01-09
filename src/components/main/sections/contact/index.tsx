@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react"; 
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
+import { HighlightedText } from "@/lib/highlight-parser";
 import { SectionHeader } from "@/components/utils/section-header";
 import { AmbientLight } from "@/components/ui/ambient-light";
 import { SocialLinks } from "@/components/ui/social-links";
@@ -57,7 +58,7 @@ export function ContactSection() {
             className="mb-16"
           >
             <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              {t("cta")}
+              <HighlightedText text={t("cta")} />
             </h3>
             <p className="text-foreground/60 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
               {t("ctaDescription")}
