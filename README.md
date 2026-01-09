@@ -258,6 +258,86 @@ Ou use o Color Picker no header para escolher entre 10 opções!
 
 Substitua `src/app/opengraph-image.png` por sua imagem personalizada (1200x630px)
 
+### 6. Sistema de Destaque de Texto (Highlighter)
+
+O portfolio inclui um **sistema de parsing inteligente** que adiciona destaques visuais ao texto em JSON. O componente `HighlightedText` reconhece uma sintaxe especial e renderiza elementos interativos automaticamente.
+
+#### Sintaxes Disponíveis
+
+**1. Destaque com Sublinhado (`[[texto]]`)**
+
+Adiciona um efeito de sublinhado animado ao texto:
+
+```json
+{
+  "description": {
+    "pt": "Desenvolvi um [[sistema de recompensas]] escalável com [[50k+ usuários]].",
+    "en": "Developed a scalable [[rewards system]] with [[50k+ users]]."
+  }
+}
+```
+
+**Resultado:** O texto dentro de `[[...]]` aparece sublinhado com animação e destaque na cor primária do tema.
+
+**2. Link com Preview (`[[texto|url]]`)**
+
+Cria um link interativo com preview ao passar o mouse:
+
+```json
+{
+  "description": {
+    "pt": "Liderei o desenvolvimento do [[NextGo Card|https://gruponextgo.com]], uma plataforma que impacta [[50k+ usuários]].",
+    "en": "Led the development of [[NextGo Card|https://gruponextgo.com]], a platform impacting [[50k+ users]]."
+  }
+}
+```
+
+**Resultado:** O texto `NextGo Card` vira um link clicável com preview hover mostrando o site.
+
+**3. Modo Bold Only**
+
+Em algumas seções (como Hero), o destaque é renderizado apenas em **negrito** sem sublinhado:
+
+```tsx
+<HighlightedText text={t("description")} boldOnly />
+```
+
+#### Onde Usar
+
+O sistema de destaque funciona em todos os arquivos JSON de dados:
+
+- ✅ **`experience.json`** - Destaque realizações e projetos importantes
+- ✅ **`projects.json`** - Enfatize tecnologias e funcionalidades chave
+- ✅ **`education.json`** - Realce conquistas acadêmicas
+- ✅ Qualquer campo `description` que use o componente `HighlightedText`
+
+#### Exemplos Práticos
+
+```json
+// experience.json
+{
+  "description": {
+    "pt": "Projetei e desenvolvi o [[NGFlux|https://ngflux.gruponextgo.com]], que gera [[anúncios automatizados]] processando [[IA para análise de sentimentos]].",
+    "en": "Designed and built [[NGFlux|https://ngflux.gruponextgo.com]], which generates [[automated ads]] using [[AI for sentiment analysis]]."
+  }
+}
+
+// projects.json
+{
+  "description": {
+    "pt": "App que captura ideias através de [[gravação de áudio]] e usa [[OpenAI Whisper]] para [[transcrição automática]].",
+    "en": "App that captures ideas through [[audio recording]] and uses [[OpenAI Whisper]] for [[automatic transcription]]."
+  }
+}
+```
+
+#### Implementação Técnica
+
+O componente `HighlightedText` (`src/lib/highlight-parser.tsx`) usa regex para:
+1. Detectar padrões `[[texto]]` e `[[texto|url]]`
+2. Renderizar componentes `Highlighter` (sublinhado animado) ou `LinkPreview` (links interativos)
+3. Aplicar animações com Framer Motion
+
 ---
 
 ## 🌐 Deploy

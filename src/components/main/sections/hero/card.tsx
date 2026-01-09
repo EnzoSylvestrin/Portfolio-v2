@@ -23,6 +23,15 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
   const currentYear = new Date().getFullYear();
   const yearsOfExperience = currentYear - yearStarted;
 
+  // Calculate age from birthdate (November 3, 2004)
+  const birthDate = new Date(2004, 10, 3); // Month is 0-indexed, so 10 = November
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
   useEffect(() => {
     const trackVisit = async () => {
       try {
@@ -88,7 +97,7 @@ export const HeroCard = ({ adjectives }: HeroCardProps) => {
           <div className="flex flex-col items-center justify-center gap-4 z-20 w-full px-4 mb-auto mt-6" style={{ transform: "translateZ(40px)" }}>
             <div className="text-center space-y-3">
               <div className="text-6xl md:text-7xl font-bold text-foreground">
-                21
+                {age}
               </div>
               <div className="text-sm font-medium text-foreground/90 uppercase tracking-widest">
                 {t("yearsOld")}
