@@ -7,14 +7,15 @@ import React from "react";
 
 interface HighlightedTextProps {
   text: string;
+  boldOnly?: boolean;
 }
 
 /**
- * Component that renders text with [[highlight]] syntax as underlined
+ * Component that renders text with [[highlight]] syntax as underlined (or bold if boldOnly is true)
  * or [[highlight|url]] as a LinkPreview
  * Example: "Text [[underlined word]] or [[link|https://example.com]]"
  */
-export function HighlightedText({ text }: HighlightedTextProps) {
+export function HighlightedText({ text, boldOnly = false }: HighlightedTextProps) {
   // Regex to match [[text]] or [[text|url]]
   // Group 1: text content
   // Group 2: optional url (undefined if not present)
@@ -44,28 +45,34 @@ export function HighlightedText({ text }: HighlightedTextProps) {
       );
     } else {
       parts.push(
-        <motion.span
-          key={key}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ 
-            duration: 0.5, 
-            delay: key * 0.1,
-            ease: "easeOut"
-          }}
-        >
-          <Highlighter 
-            color="var(--primary)"
-            action="underline" 
-            isView
-            strokeWidth={2}
+        boldOnly ? (
+          <span key={key} className="font-bold text-foreground">
+            {content}
+          </span>
+        ) : (
+          <motion.span
+            key={key}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.5, 
+              delay: key * 0.1,
+              ease: "easeOut"
+            }}
           >
-            <span className="font-semibold text-foreground relative z-10">
-              {content}
-            </span>
-          </Highlighter>
-        </motion.span>
+            <Highlighter 
+              color="color-mix(in srgb, var(--primary), transparent 60%)"
+              action="underline" 
+              isView
+              strokeWidth={2}
+            >
+              <span className="font-semibold text-foreground relative z-10">
+                {content}
+              </span>
+            </Highlighter>
+          </motion.span>
+        )
       );
     }
 

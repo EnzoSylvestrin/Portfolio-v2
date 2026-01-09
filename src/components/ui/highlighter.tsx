@@ -69,13 +69,13 @@ export function Highlighter({
 
     annotationRef.current = annotation
 
-    // Wait for fonts to be ready and add a small delay to ensure layout is stable
+    // Wait for fonts to be ready and add a delay larger than common animations (0.6s)
     document.fonts.ready.then(() => {
       setTimeout(() => {
         if (annotationRef.current) {
           annotationRef.current.show()
         }
-      }, 150)
+      }, 800)
     })
 
     const resizeObserver = new ResizeObserver(() => {

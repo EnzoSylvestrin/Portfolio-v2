@@ -21,8 +21,8 @@
     },
     "hero": {
         "greeting": "Hello, I am",
-        "role": "Software Engineer FullStack",
-        "description": "Full-stack & Mobile Software Engineer, specialized in TypeScript, React and Nest.js. Passionate about building high-quality web applications.",
+        "role": "Software Engineer FullStack & Mobile",
+        "description": "Turning ideas into scalable solutions. Expert in building robust digital ecosystems using [[React]], [[Next.js]], [[React Native]], and [[NestJS]]. Focused on performance, premium interfaces, and [[Artificial Intelligence]] integration.",
         "viewProjects": "View Projects",
         "downloadCv": "Download CV",
         "yearsOld": "Years Old",
@@ -63,7 +63,7 @@
     "contact": {
         "title": "Contact",
         "subtitle": "Let's connect",
-        "cta": "[[Let's work together?]]",
+        "cta": "Let's work together?",
         "ctaDescription": "I'm always open to new opportunities and challenges. Get in touch and let's talk!",
         "email": "Email",
         "phone": "Phone",

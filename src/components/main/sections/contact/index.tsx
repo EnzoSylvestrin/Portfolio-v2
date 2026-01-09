@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react"; 
+import { Mail, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import { HighlightedText } from "@/lib/highlight-parser";
@@ -10,6 +10,7 @@ import { SectionHeader } from "@/components/utils/section-header";
 import { AmbientLight } from "@/components/ui/ambient-light";
 import { SocialLinks } from "@/components/ui/social-links";
 import contactData from "@/data/main/contact.json";
+import { Highlighter } from "@/components/ui/highlighter";
 
 export function ContactSection() {
   const t = useTranslations("contact");
@@ -43,9 +44,9 @@ export function ContactSection() {
 
       <div className="w-full px-4 md:px-8 relative z-10">
         <div className="container max-w-4xl mx-auto text-center">
-          
-          <SectionHeader 
-            title={t("title")} 
+
+          <SectionHeader
+            title={t("title")}
             align="center"
             className="mb-16 md:mb-20"
           />
@@ -58,7 +59,7 @@ export function ContactSection() {
             className="mb-16"
           >
             <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              <HighlightedText text={t("cta")} />
+              {t("cta")}
             </h3>
             <p className="text-foreground/60 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed">
               {t("ctaDescription")}
@@ -78,8 +79,8 @@ export function ContactSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex flex-col items-center group p-8 rounded-2xl hover:bg-primary/5 transition-colors border border-transparent hover:border-primary/10 relative overflow-hidden"
               >
-                 <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+                <div className="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 <div className="relative w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
                   <info.icon className="w-7 h-7" />
                 </div>

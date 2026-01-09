@@ -4,7 +4,10 @@ import { motion } from "motion/react";
 import { Download, ArrowRight, ArrowDown } from "lucide-react";
 
 import { useTranslations, useLocale } from "next-intl";
+
 import { SocialLinks } from "@/components/ui/social-links"; 
+
+import { HighlightedText } from "@/lib/highlight-parser"; 
 
 import { AuroraBackground } from "./backgrounds/aurora";
 import { HeroCard } from "./card";
@@ -54,7 +57,7 @@ export const HeroSection = () => {
               {t("role")}
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl font-medium">
-              {t("description")}
+              <HighlightedText text={t("description")} boldOnly />
             </p>
           </div>
 
