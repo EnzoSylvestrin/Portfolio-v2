@@ -4,8 +4,8 @@
     "href": "mailto:contato.enzosp@gmail.com"
   },
   "phone": {
-    "value": "+55 (11) 9 99334-6502",
-    "href": "tel:+55119993346502"
+    "value": "+55 (11) 99334-6502",
+    "href": "tel:+5511993346502"
   },
   "location": {
     "value": "Jundiaí, SP - Brasil",
@@ -13,8 +13,8 @@
   },
   "whatsapp": {
     "href": {
-        "pt": "https://wa.me/55119993346502?text=Olá, Vi seu portfólio e gostaria de conversar!",
-        "en": "https://wa.me/55119993346502?text=Hi, I saw your portfolio and I would like to chat!"
+        "pt": "https://wa.me/5511993346502?text=Olá, Vi seu portfólio e gostaria de conversar!",
+        "en": "https://wa.me/5511993346502?text=Hi, I saw your portfolio and I would like to chat!"
     }
   }
 }

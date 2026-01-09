@@ -28,7 +28,7 @@ export function ScrollProgress({
     <motion.div
       ref={ref}
       className={cn(
-        "fixed inset-x-0 top-0 z-[1000] h-0.5 origin-left bg-primary/40",
+        "fixed inset-x-0 top-0 z-1000 h-0.5 origin-left bg-primary/40",
         className
       )}
       style={{

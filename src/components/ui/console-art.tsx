@@ -40,7 +40,7 @@ export function ConsoleArt() {
     console.log('');
     console.log('%c💼 QUER ME CONTRATAR?', styles.highlight);
     console.log('');
-    console.log('%c📱 WhatsApp → %chttps://wa.me/55119993346502', styles.emoji, styles.link);
+    console.log('%c📱 WhatsApp → %chttps://wa.me/5511993346502', styles.emoji, styles.link);
     console.log('%c📧 Email → %ccontato.enzosp@gmail.com', styles.emoji, styles.link);
     console.log('%c🔗 LinkedIn → %chttps://www.linkedin.com/in/enzo-sylvestrin-336b71221/', styles.emoji, styles.link);
     console.log('%c🐙 GitHub → %chttps://github.com/EnzoSylvestrin', styles.emoji, styles.link);

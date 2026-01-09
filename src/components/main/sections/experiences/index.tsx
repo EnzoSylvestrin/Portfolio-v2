@@ -12,6 +12,8 @@ import { useLocale, useTranslations } from "next-intl";
 
 import experienceData from "@/data/main/experience.json";
 
+import { HighlightedText } from "@/lib/highlight-parser";
+
 export function ExperienceSection() {
   const t = useTranslations("experience");
   const locale = useLocale();
@@ -68,9 +70,9 @@ export function ExperienceSection() {
             </div>
 
             <div className="col-span-2 md:col-span-1 md:col-start-2">
-              <p className="text-foreground/70 text-sm md:text-lg leading-relaxed">
-                {job.description[lang]}
-              </p>
+              <div className="text-foreground/70 text-sm md:text-lg leading-relaxed">
+                <HighlightedText text={job.description[lang]} />
+              </div>
             </div>
 
             <div className="col-span-2 md:col-span-1 md:col-start-2 flex flex-wrap gap-2">

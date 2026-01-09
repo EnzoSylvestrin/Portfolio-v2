@@ -11,10 +11,10 @@
       "en": "Jul 2023 - Present"
     },
     "description": {
-      "pt": "Como parte da equipe, realizei o desenvolvimento e manutenção de diversos sistemas de software. Minhas responsabilidades abrangeram desde a correção de bugs até o desenvolvimento de novos recursos inovadores. Alguns dos projetos notáveis incluem a criação de sistemas de autenticação com integração ao Firebase e a implementação de um robusto programa de fidelidade no aplicativo Next Go Orders. Esses sistemas desempenham um papel vital na experiência de mais de 40 mil usuários, processando centenas de milhares de interações. Durante o ciclo de vida desses projetos, atuei como desenvolvedor full-stack, empregando uma ampla variedade de tecnologias de ponta.",
-      "en": "As part of the team, I performed the development and maintenance of various software systems. My responsibilities ranged from bug fixing to the development of new innovative features. Notable projects include creating authentication systems with Firebase integration and implementing a robust loyalty program in the Next Go Orders app. These systems play a vital role in the experience of over 40,000 users, processing hundreds of thousands of interactions. During the lifecycle of these projects, I acted as a full-stack developer, employing a wide variety of cutting-edge technologies."
+      "pt": "Minha jornada iniciou [[liderando o desenvolvimento do Programa de Fidelidade]] integrado ao app [[Next Go Orders|https://novo.nextgoorders.com/login]], criando um sistema de recompensas escalável. Com o crescimento, assumi a liderança técnica do [[NextGo Card|https://gruponextgo.com]] (AdonisJS), uma plataforma de gestão de benefícios que impacta hoje [[50k+ usuários mensais]]. Expandindo para o setor financeiro, atuei decisivamente no [[NextGo Pay|https://app.nextgopay.com/signin]], uma fintech robusta que processa mais de [[R$500k/mês]], garantindo segurança e alta disponibilidade. Paralelamente, atuo como Squad Solo no [[NextGo Saúde|https://nextgosaude.com]], mantendo e evoluindo uma plataforma completa de telemedicina que atende [[2k+ vidas]]. Mais recentemente, projetei e desenvolvi do zero o [[NGFlux|https://ngflux.gruponextgo.com]], sistema que gera [[anúncios e posts a partir de avaliações]] de clientes, automatizando o marketing na Meta com NestJS, Next.js e Docker.",
+      "en": "My journey began leading the development of the [[Loyalty Program]] fully integrated into the [[Next Go Orders|https://novo.nextgoorders.com/login]] app, creating a scalable rewards system. With its growth, I took over technical leadership of [[NextGo Card|https://gruponextgo.com]] (AdonisJS), a benefits management platform that today impacts [[50k+ monthly users]]. Expanding into the financial sector, I played a decisive role in [[NextGo Pay|https://app.nextgopay.com/signin]], a robust fintech processing over [[R$500k/mo]], ensuring security and high availability. Concurrently, I act as a Solo Squad on [[NextGo Saúde|https://nextgosaude.com]], maintaining and evolving a complete telemedicine platform supporting [[2k+ lives]]. Most recently, I designed and built [[NGFlux|https://ngflux.gruponextgo.com]] from scratch, a system that generates [[ads and posts from customer reviews]], automating Meta marketing using NestJS, Next.js, and Docker."
     },
-    "skills": ["React", "Next.js", "Tailwind", "REST API", "NestJS", "Laravel", "TypeScript", "Postgres", "Prisma"]
+    "skills": ["50k+ Users", "AdonisJS", "Docker", "NestJS", "Next.js", "React", "TypeScript", "Postgres", "Fintech", "+"]
   },
   {
     "company": "Workana",
@@ -28,10 +28,10 @@
       "en": "Jul 2021 - Present"
     },
     "description": {
-      "pt": "Atuando como desenvolvedor freelancer em diversos projetos, entregando soluções de alta qualidade para clientes.",
-      "en": "Working as a freelance developer on various projects, delivering high-quality solutions for clients worldwide."
+      "pt": "Com [[mais de 15 projetos]] entregues como freelancer, desenvolvi soluções como [[checkouts integrados com Pagar.me]], [[aplicativos de redes sociais]] em React Native e [[automações industriais]] complexas usando Playwright e Python.",
+      "en": "With [[over 15 projects]] delivered as a freelancer, I developed solutions such as [[checkouts integrated with Pagar.me]], [[social media apps]] in React Native, and complex [[industrial automations]] using Playwright and Python."
     },
-    "skills": ["React Native", "Expo", "React", "Next.js", "Tailwind", "REST API", "NestJS", "TypeScript", "Postgres", "Prisma", "Drizzle"]
+    "skills": ["15+ Projects", "React Native", "Pagar.me", "Playwright", "Python", "React", "Next.js", "TypeScript", "+"]
   },
   {
     "company": "Bitbyte Informatica",
@@ -45,10 +45,10 @@
       "en": "Jan 2023 - Feb 2023"
     },
     "description": {
-      "pt": "Atuei como desenvolvedor júnior contribuindo para sistemas internos e ferramentas de automação.",
-      "en": "Worked as a junior developer contributing to internal systems and automation tools."
+      "pt": "Foco intensificado no [[desenvolvimento do aplicativo]] Android nativo e na criação de [[automações de tarefas]] avançadas para otimizar fluxos de trabalho internos.",
+      "en": "Intensified focus on native [[Android app development]] and creating advanced [[task automations]] to optimize internal workflows."
     },
-    "skills": ["IT", "Automation", "Development"]
+    "skills": ["Java", "Android", "Google Apps Script", "Automation"]
   },
   {
     "company": "Bitbyte Informatica",
@@ -62,9 +62,9 @@
       "en": "Nov 2021 - Dec 2022"
     },
     "description": {
-      "pt": "Iniciei como estagiário, aprendendo as melhores práticas e contribuindo com tarefas de desenvolvimento de software.",
-      "en": "Started as an intern, learning best practices and contributing to software development tasks."
+      "pt": "Desenvolvi [[automações com Google Apps Script]], [[páginas web em PHP]] para clientes e [[soluções Android em Java]] para o app da empresa e máquinas GPOS como Rede e Stone.",
+      "en": "Developed [[Google Apps Script automations]], [[PHP web pages]] for clients and [[Java Android solutions]] for the company's app and GPOS machines like Rede and Stone."
     },
-    "skills": ["Programming", "Learning", "Support"]
+    "skills": ["Google Apps Script", "PHP", "Java", "Android", "GPOS"]
   }
 ]
