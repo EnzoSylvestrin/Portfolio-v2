@@ -49,6 +49,13 @@
   "tools": [
     { "name": "Git", "icon": "SiGit", "sinceYear": 2021, "color": "#F05032" },
     { "name": "GitHub", "icon": "SiGithub", "sinceYear": 2021, "color": "#181717" },
+    { 
+      "name": "AWS", 
+      "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+      "sinceYear": 2023, 
+      "color": "#FF9900" 
+    },
+    { "name": "Cloudflare", "icon": "SiCloudflare", "sinceYear": 2023, "color": "#F38020" },
     { "name": "Bun", "icon": "SiBun", "sinceYear": 2024, "color": "#000000" },
     { "name": "Docker", "icon": "SiDocker", "sinceYear": 2024, "color": "#2496ED" },
     { 

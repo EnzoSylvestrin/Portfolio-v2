@@ -25,7 +25,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 lg:px-8 py-20 md:py-24 lg:py-16">
+    <section id="home" className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 lg:px-8">
 
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#53535312_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"

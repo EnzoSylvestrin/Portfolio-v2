@@ -40,11 +40,11 @@ const getYears = (skill: Skill): number => {
   return 0;
 };
 
-const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; skillIndex: number }) => {
+const SkillItem = ({ skill }: { skill: Skill }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMobile();
-  
-  const IconComponent = skill.icon 
+
+  const IconComponent = skill.icon
     ? SimpleIcons[skill.icon as keyof typeof SimpleIcons] as React.ComponentType<{ className?: string }> | undefined
     : undefined;
   const color = skill.color;
@@ -67,14 +67,14 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
       />
       <div className="relative z-10 flex items-center gap-3">
         {skill.iconSvg ? (
-          <span 
+          <span
             className="shrink-0 w-5 h-5 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100"
             style={{ color: isDark ? "currentColor" : color }}
             dangerouslySetInnerHTML={{ __html: skill.iconSvg }}
           />
         ) : skill.iconUrl ? (
-          <Image 
-            src={skill.iconUrl} 
+          <Image
+            src={skill.iconUrl}
             alt={skill.name}
             width={20}
             height={20}
@@ -85,7 +85,7 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
             <IconComponent className="w-5 h-5" />
           </span>
         ) : null}
-        
+
         <span
           className={`text-base font-semibold transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100 ${isDark ? "text-foreground" : ""}`}
           style={{ color: isDark ? undefined : color }}
@@ -115,16 +115,7 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
     </>
   );
 
-  const containerAnimation = {
-    initial: { opacity: 0, y: 10 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-50px", amount: 0.3 },
-    transition: {
-      duration: 0.3,
-      delay: index * 0.04 + skillIndex * 0.015
-    }
-  };
-
+  // No animation on badges anymore - only cards animate
   const containerStyle = {
     borderColor: `${color}50`,
     backgroundColor: `${color}20`,
@@ -135,27 +126,25 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
 
   if (isMobile) {
     return (
-      <motion.div
-        {...containerAnimation}
+      <div
         style={containerStyle}
         onClick={() => setIsOpen(!isOpen)}
         className={containerClass}
       >
         {BadgeContent}
-      </motion.div>
+      </div>
     );
   }
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <motion.div
-          {...containerAnimation}
+        <div
           style={containerStyle}
           className={`${containerClass} hover:-translate-y-0.5 transition-transform`}
         >
           {BadgeContent}
-        </motion.div>
+        </div>
       </TooltipTrigger>
       <TooltipContent>
         <p className="text-xs font-medium">{description}</p>
@@ -167,12 +156,12 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px", amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
         duration: 0.4,
-        delay: index * 0.05
+        delay: index * 0.1
       }}
       style={{ willChange: 'transform, opacity' }}
       className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
@@ -204,12 +193,10 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
         </motion.div>
 
         <div className="flex flex-wrap gap-4 flex-1">
-          {skills.map((skill, skillIndex) => (
+          {skills.map((skill) => (
             <SkillItem
               key={skill.name}
               skill={skill}
-              index={index}
-              skillIndex={skillIndex}
             />
           ))}
         </div>
