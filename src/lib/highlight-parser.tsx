@@ -46,8 +46,8 @@ export function HighlightedText({ text }: HighlightedTextProps) {
       parts.push(
         <motion.span
           key={key}
-          initial={{ opacity: 0, y: 5 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ 
             duration: 0.5, 
@@ -61,7 +61,7 @@ export function HighlightedText({ text }: HighlightedTextProps) {
             isView
             strokeWidth={2}
           >
-            <span className="font-semibold text-foreground">
+            <span className="font-semibold text-foreground relative z-10">
               {content}
             </span>
           </Highlighter>

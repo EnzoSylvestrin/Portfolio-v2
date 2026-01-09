@@ -68,11 +68,26 @@ export function Highlighter({
     const annotation = annotate(element, annotationConfig)
 
     annotationRef.current = annotation
-    annotationRef.current.show()
+
+    // Wait for fonts to be ready and add a small delay to ensure layout is stable
+    document.fonts.ready.then(() => {
+      setTimeout(() => {
+        if (annotationRef.current) {
+          annotationRef.current.show()
+        }
+      }, 150)
+    })
 
     const resizeObserver = new ResizeObserver(() => {
-      annotation.hide()
-      annotation.show()
+      // Small debounce for resize events
+      if (annotationRef.current) {
+        annotationRef.current.hide()
+        setTimeout(() => {
+          if (annotationRef.current) {
+            annotationRef.current.show()
+          }
+        }, 50)
+      }
     })
 
     resizeObserver.observe(element)
