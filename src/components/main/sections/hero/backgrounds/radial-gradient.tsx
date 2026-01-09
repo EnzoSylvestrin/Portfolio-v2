@@ -29,8 +29,7 @@ export const RadialGradientBackground = () => {
 
     const updateColors = () => {
       const htmlStyle = document.documentElement.style.getPropertyValue("--theme-hue");
-      const computedStyle = getComputedStyle(document.documentElement).getPropertyValue("--theme-hue");
-      const newHue = parseInt(htmlStyle || computedStyle || "290", 10);
+      const newHue = parseInt(htmlStyle || "290", 10);
 
       if (!isNaN(newHue)) {
         setHue(newHue);

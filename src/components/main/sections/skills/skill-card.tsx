@@ -116,14 +116,12 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
   );
 
   const containerAnimation = {
-    initial: { opacity: 0.4, scale: 0.85, y: 5 },
-    whileInView: { opacity: 1, scale: 1, y: 0 },
-    viewport: { once: true, margin: "-50px" },
+    initial: { opacity: 0, y: 10 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px", amount: 0.3 },
     transition: {
-      type: "spring" as const,
-      stiffness: 400,
-      damping: 15,
-      delay: index * 0.06 + skillIndex * 0.02
+      duration: 0.3,
+      delay: index * 0.04 + skillIndex * 0.015
     }
   };
 
@@ -153,14 +151,8 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
       <TooltipTrigger asChild>
         <motion.div
           {...containerAnimation}
-          whileHover={{ 
-            scale: 1.05,
-            y: -2,
-            transition: { duration: 0.2 }
-          }}
-          whileTap={{ scale: 0.98 }}
           style={containerStyle}
-          className={containerClass}
+          className={`${containerClass} hover:-translate-y-0.5 transition-transform`}
         >
           {BadgeContent}
         </motion.div>
@@ -175,14 +167,14 @@ const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0.5, y: 20, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-80px" }}
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px", amount: 0.2 }}
       transition={{
-        duration: 0.3,
-        ease: [0.16, 1, 0.3, 1],
-        delay: index * 0.06
+        duration: 0.4,
+        delay: index * 0.05
       }}
+      style={{ willChange: 'transform, opacity' }}
       className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
     >
       <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-500" />
@@ -194,14 +186,14 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
           initial={{ opacity: 0.6, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.2, delay: index * 0.06 + 0.1 }}
+          transition={{ duration: 0.2, delay: index * 0.05 + 0.1 }}
           className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative"
         >
           <div className="absolute bottom-[-2px] left-0 h-[2px] w-full bg-primary/50 opacity-50 group-hover:opacity-100 transition-all duration-300" />
 
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            transition={{ duration: 0.2 }}
             className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20"
           >
             <Icon className="w-6 h-6 text-primary" />
