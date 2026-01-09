@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { LucideIcon } from "lucide-react";
 
@@ -6,6 +6,8 @@ import * as SimpleIcons from "@icons-pack/react-simple-icons";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import Image from "next/image";
+import { useState } from "react";
+import { useMobile } from "@/hooks/use-mobile";
 
 interface Skill {
   name: string;
@@ -36,6 +38,138 @@ const getYears = (skill: Skill): number => {
   if (skill.years !== undefined) return skill.years;
   if (skill.sinceYear !== undefined) return calculateYears(skill.sinceYear);
   return 0;
+};
+
+const SkillItem = ({ skill, index, skillIndex }: { skill: Skill; index: number; skillIndex: number }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMobile();
+  
+  const IconComponent = skill.icon 
+    ? SimpleIcons[skill.icon as keyof typeof SimpleIcons] as React.ComponentType<{ className?: string }> | undefined
+    : undefined;
+  const color = skill.color;
+  const years = getYears(skill);
+  const isDark = ["Next.js", "Express", "GitHub", "Prisma", "Fastify", "Cursor", "Bun"].includes(skill.name);
+
+  const description = skill.proficiency ? (
+    skill.proficiency
+  ) : skill.sinceYear ? (
+    `${years} ${years === 1 ? 'ano' : 'anos'}`
+  ) : skill.years ? (
+    `${years} ${years === 1 ? 'ano' : 'anos'}`
+  ) : null;
+
+  const BadgeContent = (
+    <>
+      <div
+        className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 dark:group-hover/badge:opacity-15 transition-opacity duration-200 pointer-events-none"
+        style={{ backgroundColor: color }}
+      />
+      <div className="relative z-10 flex items-center gap-3">
+        {skill.iconSvg ? (
+          <span 
+            className="shrink-0 w-5 h-5 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100"
+            style={{ color: isDark ? "currentColor" : color }}
+            dangerouslySetInnerHTML={{ __html: skill.iconSvg }}
+          />
+        ) : skill.iconUrl ? (
+          <Image 
+            src={skill.iconUrl} 
+            alt={skill.name}
+            width={20}
+            height={20}
+            className="shrink-0 w-5 h-5 object-contain"
+          />
+        ) : IconComponent ? (
+          <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDark ? "currentColor" : color }}>
+            <IconComponent className="w-5 h-5" />
+          </span>
+        ) : null}
+        
+        <span
+          className={`text-base font-semibold transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100 ${isDark ? "text-foreground" : ""}`}
+          style={{ color: isDark ? undefined : color }}
+        >
+          {skill.name}
+        </span>
+
+        {isMobile && (
+          <AnimatePresence mode="wait">
+            {isOpen && description && (
+              <motion.div
+                initial={{ opacity: 0, width: 0, marginLeft: 0 }}
+                animate={{ opacity: 1, width: "auto", marginLeft: 8 }}
+                exit={{ opacity: 0, width: 0, marginLeft: 0 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="overflow-hidden whitespace-nowrap flex items-center"
+              >
+                <span className="w-px h-4 bg-foreground/20 mr-3 shrink-0" />
+                <span className="text-xs font-medium text-foreground/80">
+                  {description}
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
+      </div>
+    </>
+  );
+
+  const containerAnimation = {
+    initial: { opacity: 0.4, scale: 0.85, y: 5 },
+    whileInView: { opacity: 1, scale: 1, y: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: {
+      type: "spring" as const,
+      stiffness: 400,
+      damping: 15,
+      delay: index * 0.06 + skillIndex * 0.02
+    }
+  };
+
+  const containerStyle = {
+    borderColor: `${color}50`,
+    backgroundColor: `${color}20`,
+    "--tech-color": color
+  } as React.CSSProperties;
+
+  const containerClass = "group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-300 hover:shadow-md overflow-hidden hover:bg-card cursor-pointer";
+
+  if (isMobile) {
+    return (
+      <motion.div
+        {...containerAnimation}
+        style={containerStyle}
+        onClick={() => setIsOpen(!isOpen)}
+        className={containerClass}
+      >
+        {BadgeContent}
+      </motion.div>
+    );
+  }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <motion.div
+          {...containerAnimation}
+          whileHover={{ 
+            scale: 1.05,
+            y: -2,
+            transition: { duration: 0.2 }
+          }}
+          whileTap={{ scale: 0.98 }}
+          style={containerStyle}
+          className={containerClass}
+        >
+          {BadgeContent}
+        </motion.div>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p className="text-xs font-medium">{description}</p>
+      </TooltipContent>
+    </Tooltip>
+  );
 };
 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
@@ -78,88 +212,14 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
         </motion.div>
 
         <div className="flex flex-wrap gap-4 flex-1">
-          {skills.map((skill, skillIndex) => {
-            const IconComponent = skill.icon 
-              ? SimpleIcons[skill.icon as keyof typeof SimpleIcons] as React.ComponentType<{ className?: string }> | undefined
-              : undefined;
-            const color = skill.color;
-            const years = getYears(skill);
-            const isDark = ["Next.js", "Express", "GitHub", "Prisma", "Fastify", "Cursor", "Bun"].includes(skill.name);
-
-            return (
-              <Tooltip key={skill.name}>
-                <TooltipTrigger asChild>
-                  <motion.div
-                    initial={{ opacity: 0.4, scale: 0.85, y: 5 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 15,
-                      delay: index * 0.06 + skillIndex * 0.02
-                    }}
-                    whileHover={{ 
-                      scale: 1.08, 
-                      y: -2,
-                      transition: { duration: 0.2, delay: 0 }
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{
-                      borderColor: `${color}50`,
-                      backgroundColor: `${color}20`,
-                      "--tech-color": color
-                    } as React.CSSProperties}
-                    className="group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-colors duration-150 hover:shadow-md overflow-hidden hover:bg-card"
-                  >
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 dark:group-hover/badge:opacity-15 transition-opacity duration-200 pointer-events-none"
-                      style={{ backgroundColor: color }}
-                    />
-                    <div className="relative z-10 flex items-center gap-3">
-                      {skill.iconSvg ? (
-                        <span 
-                          className="shrink-0 w-5 h-5 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100"
-                          style={{ color: isDark ? "currentColor" : color }}
-                          dangerouslySetInnerHTML={{ __html: skill.iconSvg }}
-                        />
-                      ) : skill.iconUrl ? (
-                        <Image 
-                          src={skill.iconUrl} 
-                          alt={skill.name}
-                          width={20}
-                          height={20}
-                          className="shrink-0 w-5 h-5 object-contain"
-                        />
-                      ) : IconComponent ? (
-                        <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDark ? "currentColor" : color }}>
-                          <IconComponent className="w-5 h-5" />
-                        </span>
-                      ) : null}
-                      
-                      <span
-                        className={`text-base font-semibold transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100 ${isDark ? "text-foreground" : ""}`}
-                        style={{ color: isDark ? undefined : color }}
-                      >
-                        {skill.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-xs font-medium">
-                    {skill.proficiency ? (
-                      skill.proficiency
-                    ) : skill.sinceYear ? (
-                      `${years} ${years === 1 ? 'ano' : 'anos'} - Desde ${skill.sinceYear}`
-                    ) : skill.years ? (
-                      `${years} ${years === 1 ? 'ano' : 'anos'}`
-                    ) : null}
-                  </p>
-                </TooltipContent>
-              </Tooltip>
-            );
-          })}
+          {skills.map((skill, skillIndex) => (
+            <SkillItem
+              key={skill.name}
+              skill={skill}
+              index={index}
+              skillIndex={skillIndex}
+            />
+          ))}
         </div>
       </div>
     </motion.div>

@@ -389,18 +389,6 @@ Este projeto é **open-source** e está disponível para uso livre. Sinta-se à 
 
 **Se você usar este projeto, uma ⭐ no repositório é muito apreciada!**
 
----
-
-## 🙏 Agradecimentos
-
-- [Next.js](https://nextjs.org/) pela framework incrível
-- [Vercel](https://vercel.com/) pelo hosting
-- [Upstash](https://upstash.com/) pelo Redis serverless
-- [Radix UI](https://www.radix-ui.com/) pelos componentes acessíveis
-- [Tailwind CSS](https://tailwindcss.com/) pela DX fantástica
-
----
-
 <div align="center">
 
 ### 💜 Feito com paixão por [Enzo Sylvestrin](https://enzopavani.dev)
