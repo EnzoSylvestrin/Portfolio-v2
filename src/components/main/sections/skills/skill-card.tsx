@@ -78,6 +78,8 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
             width={20}
             height={20}
             className="shrink-0 w-5 h-5 object-contain"
+            loading="eager"
+            fetchPriority="high"
           />
         ) : IconComponent ? (
           <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDark ? "currentColor" : color }}>

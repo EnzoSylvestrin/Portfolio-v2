@@ -25,7 +25,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 lg:px-8">
+    <section id="home" className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 lg:px-8 py-4 md:py-0">
 
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#53535312_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
@@ -34,12 +34,12 @@ export const HeroSection = () => {
 
       <AuroraBackground />
 
-      <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 xl:gap-16 items-center relative z-10 flex-1">
+      <div className="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-8 lg:gap-10 xl:gap-16 items-center relative z-10 flex-1 py-2 md:py-0">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-col items-start text-left space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-8"
+          className="flex flex-col items-start text-left space-y-4 md:space-y-4 lg:space-y-6 xl:space-y-8"
         >
           <div className="flex flex-col gap-2">
             <span className="text-base md:text-lg font-bold tracking-[0.2em] text-primary pl-1">
@@ -52,7 +52,7 @@ export const HeroSection = () => {
             </h1>
           </div>
 
-          <div className="space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-8 max-w-2xl">
+          <div className="space-y-4 md:space-y-4 lg:space-y-6 xl:space-y-8 max-w-2xl">
             <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl font-bold text-foreground">
               {t("role")}
             </h2>

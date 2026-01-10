@@ -15,6 +15,8 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { ConsoleArt } from "@/components/ui/console-art";
 import { Footer } from "@/components/main/utils/footer";
+import { PreloadSkillsIcons } from "@/components/utils/preload-skills-icons";
+import { PixelatedText } from "@/components/ui/pixelated-text";
 
 import "../styles/reduced-motion.css";
 import "../styles/globals.css";
@@ -132,12 +134,23 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <SpeedInsights />
+            <PreloadSkillsIcons />
             <MotionConfig reducedMotion="user">
               <ConsoleArt />
               <ScrollProgress />
               <Header />
               {children}
               <Footer />
+              <div className="w-full bg-background/50 border-t border-border/20 py-4 md:py-6">
+                <PixelatedText
+                  text="ENZO"
+                  className="w-full max-w-6xl mx-auto px-4"
+                  gridSize={14}
+                  dotSize={2.5}
+                  textOpacity={0.45}
+                  bgOpacity={0.06}
+                />
+              </div>
               <BackToTop />
             </MotionConfig>
           </ThemeProvider>
