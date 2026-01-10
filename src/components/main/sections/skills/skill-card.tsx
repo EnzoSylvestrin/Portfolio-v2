@@ -27,13 +27,12 @@ interface SkillCardProps {
   index: number;
 }
 
-// Calculate years of experience dynamically
+const CURRENT_YEAR = new Date().getFullYear();
+
 const calculateYears = (sinceYear: number): number => {
-  const currentYear = new Date().getFullYear();
-  return currentYear - sinceYear;
+  return CURRENT_YEAR - sinceYear;
 };
 
-// Get years for a skill (use hardcoded or calculate from sinceYear)
 const getYears = (skill: Skill): number => {
   if (skill.years !== undefined) return skill.years;
   if (skill.sinceYear !== undefined) return calculateYears(skill.sinceYear);
@@ -100,8 +99,8 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
                 initial={{ opacity: 0, width: 0, marginLeft: 0 }}
                 animate={{ opacity: 1, width: "auto", marginLeft: 8 }}
                 exit={{ opacity: 0, width: 0, marginLeft: 0 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="overflow-hidden whitespace-nowrap flex items-center"
+                transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                className="overflow-hidden whitespace-nowrap flex items-center will-change-[opacity,width]"
               >
                 <span className="w-px h-4 bg-foreground/20 mr-3 shrink-0" />
                 <span className="text-xs font-medium text-foreground/80">
@@ -122,7 +121,7 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
     "--tech-color": color
   } as React.CSSProperties;
 
-  const containerClass = "group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-300 hover:shadow-md overflow-hidden hover:bg-card cursor-pointer";
+  const containerClass = "group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:shadow-md overflow-hidden hover:bg-card cursor-pointer will-change-transform";
 
   if (isMobile) {
     return (
@@ -141,7 +140,7 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
       <TooltipTrigger asChild>
         <div
           style={containerStyle}
-          className={`${containerClass} hover:-translate-y-0.5 transition-transform`}
+          className={`${containerClass} hover:-translate-y-0.5 transition-transform duration-200`}
         >
           {BadgeContent}
         </div>
@@ -158,20 +157,21 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
     <motion.div
       initial={{ opacity: 0.4, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.15
+        duration: 0.4,
+        delay: index * 0.1,
+        ease: [0.25, 0.1, 0.25, 1]
       }}
-      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-md p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
+      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-sm p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col will-change-transform"
     >
-      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-300" />
 
-      <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-primary/20 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+      <div className="absolute -inset-px rounded-2xl bg-linear-to-br from-primary/20 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300 -z-10" />
 
       <div className="relative">
         <div className="flex items-center gap-4 mb-6 pb-6 border-b-2 border-primary/10 group-hover:border-primary/30 transition-colors relative">
-          <div className="absolute bottom-[-2px] left-0 h-[2px] w-full bg-primary/50 opacity-50 group-hover:opacity-100 transition-all duration-300" />
+          <div className="absolute bottom-[-2px] left-0 h-[2px] w-full bg-primary/50 opacity-50 group-hover:opacity-100 transition-opacity duration-200" />
 
           <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20">
             <Icon className="w-6 h-6 text-primary" />

@@ -38,7 +38,7 @@ export function SkillsSection() {
       <WaveDivider />
       
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <Meteors number={25} />
+        <Meteors number={20} />
       </div>
       
       <div className="absolute inset-0 pointer-events-none">
