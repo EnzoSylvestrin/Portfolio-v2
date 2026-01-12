@@ -52,9 +52,9 @@ export const HeroSection = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className={cn("flex flex-col items-start text-left space-y-4 md:space-y-3 lg:space-y-6 xl:space-y-8", isShortHeight && "space-y-2 md:space-y-2 lg:space-y-3")}
+          className={cn("flex flex-col items-start text-left space-y-6 md:space-y-8 lg:space-y-8 xl:space-y-10", isShortHeight && "space-y-2 md:space-y-2 lg:space-y-3")}
         >
-          <div className={cn("flex flex-col gap-2 md:gap-1.5 lg:gap-2", isShortHeight && "gap-1 md:gap-1")}>
+          <div className={cn("flex flex-col gap-3 md:gap-4 lg:gap-4", isShortHeight && "gap-1 md:gap-1")}>
             <span className={cn("text-base md:text-base lg:text-lg font-bold tracking-[0.2em] text-primary pl-1", isShortHeight && "text-sm md:text-sm lg:text-base")}>
               {t("greeting")}
             </span>
@@ -65,7 +65,7 @@ export const HeroSection = () => {
             </h1>
           </div>
 
-          <div className={cn("space-y-4 md:space-y-3 lg:space-y-6 xl:space-y-8 max-w-2xl", isShortHeight && "space-y-2 md:space-y-2 lg:space-y-3")}>
+          <div className={cn("space-y-6 md:space-y-8 lg:space-y-8 xl:space-y-10 max-w-2xl", isShortHeight && "space-y-2 md:space-y-2 lg:space-y-3")}>
             <h2 className={cn("text-xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground", isShortHeight && "text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl")}>
               {t("role")}
             </h2>
@@ -78,7 +78,7 @@ export const HeroSection = () => {
             <SocialLinks variant="button" iconSize="md" includeWhatsapp={true} className={cn("gap-3 md:gap-3 lg:gap-4", isShortHeight && "gap-2 md:gap-2")} />
           </div>
 
-          <div className={cn("flex flex-wrap gap-4 md:gap-3 lg:gap-4 pt-2 md:pt-1 lg:pt-2", isShortHeight && "gap-2 md:gap-2 lg:gap-3 pt-1 md:pt-0.5 lg:pt-1")}>
+          <div className={cn("flex flex-wrap gap-4 md:gap-4 lg:gap-4 pt-4 md:pt-6 lg:pt-6", isShortHeight && "gap-2 md:gap-2 lg:gap-3 pt-1 md:pt-0.5 lg:pt-1")}>
             <button
               onClick={(e) => {
                 e.preventDefault();
