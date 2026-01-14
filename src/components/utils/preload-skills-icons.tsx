@@ -14,25 +14,23 @@ export function PreloadSkillsIcons() {
       ...skillsData.languages,
     ];
 
-    allSkills.forEach((skill) => {
-      if ("iconUrl" in skill && skill.iconUrl) {
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.href = skill.iconUrl;
-        link.as = "image";
-        link.crossOrigin = "anonymous";
-        document.head.appendChild(link);
-      }
-    });
-
-    return () => {
-      const links = document.head.querySelectorAll('link[rel="preload"][as="image"]');
-      links.forEach((link) => {
-        if (link.getAttribute("href")?.startsWith("http")) {
-          document.head.removeChild(link);
+    const preloadImages = () => {
+      allSkills.forEach((skill, index) => {
+        if ("iconUrl" in skill && skill.iconUrl) {
+          const img = new Image();
+          img.src = skill.iconUrl;
+          img.crossOrigin = "anonymous";
         }
       });
     };
+
+    if (typeof window !== "undefined") {
+      if (document.readyState === "complete") {
+        preloadImages();
+      } else {
+        window.addEventListener("load", preloadImages, { once: true });
+      }
+    }
   }, []);
 
   return null;

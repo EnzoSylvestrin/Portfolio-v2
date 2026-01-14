@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { memo } from "react";
 
 import { LucideIcon } from "lucide-react";
 
@@ -27,6 +28,11 @@ interface SkillCardProps {
   index: number;
 }
 
+interface SkillItemProps {
+  skill: Skill;
+  cardIndex: number;
+}
+
 const CURRENT_YEAR = new Date().getFullYear();
 
 const calculateYears = (sinceYear: number): number => {
@@ -39,7 +45,7 @@ const getYears = (skill: Skill): number => {
   return 0;
 };
 
-const SkillItem = ({ skill }: { skill: Skill }) => {
+const SkillItem = memo(({ skill, cardIndex }: SkillItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMobile();
 
@@ -49,6 +55,8 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
   const color = skill.color;
   const years = getYears(skill);
   const isDark = ["Next.js", "Express", "GitHub", "Prisma", "Fastify", "Cursor", "Bun"].includes(skill.name);
+  const isAboveFold = cardIndex < 2;
+  const shouldLazyLoad = !isAboveFold && skill.iconUrl;
 
   const description = skill.proficiency ? (
     skill.proficiency
@@ -78,8 +86,9 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
             width={20}
             height={20}
             className="shrink-0 w-5 h-5 object-contain"
-            loading="eager"
-            fetchPriority="high"
+            loading={shouldLazyLoad ? "lazy" : "eager"}
+            fetchPriority={isAboveFold ? "high" : "auto"}
+            unoptimized
           />
         ) : IconComponent ? (
           <span className="shrink-0 transition-colors brightness-75 dark:brightness-100 saturate-150 dark:saturate-100" style={{ color: isDark ? "currentColor" : color }}>
@@ -116,14 +125,13 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
     </>
   );
 
-  // No animation on badges anymore - only cards animate
   const containerStyle = {
     borderColor: `${color}50`,
     backgroundColor: `${color}20`,
     "--tech-color": color
   } as React.CSSProperties;
 
-  const containerClass = "group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:shadow-md overflow-hidden hover:bg-card cursor-pointer will-change-transform";
+  const containerClass = "group/badge relative flex items-center gap-3 px-5 py-3 rounded-xl border transition-all duration-200 hover:shadow-md overflow-hidden hover:bg-card cursor-pointer";
 
   if (isMobile) {
     return (
@@ -152,20 +160,24 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
       </TooltipContent>
     </Tooltip>
   );
-};
+});
+
+SkillItem.displayName = "SkillItem";
 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
+  const isAboveFold = index < 2;
+  
   return (
     <motion.div
       initial={{ opacity: 0.4, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: isAboveFold ? 0.1 : 0.2, margin: "-50px" }}
       transition={{
-        duration: 0.4,
-        delay: index * 0.1,
+        duration: 0.3,
+        delay: isAboveFold ? index * 0.05 : index * 0.08,
         ease: [0.25, 0.1, 0.25, 1]
       }}
-      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-sm p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col will-change-transform"
+      className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-sm p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
     >
       <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 opacity-50 dark:opacity-50 group-hover:opacity-20 dark:group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -188,6 +200,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
             <SkillItem
               key={skill.name}
               skill={skill}
+              cardIndex={index}
             />
           ))}
         </div>
