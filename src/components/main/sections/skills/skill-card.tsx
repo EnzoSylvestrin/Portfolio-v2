@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { memo } from "react";
 
 import { LucideIcon } from "lucide-react";
 
@@ -7,7 +6,7 @@ import * as SimpleIcons from "@icons-pack/react-simple-icons";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMobile } from "@/hooks/use-mobile";
 
 interface Skill {
@@ -45,7 +44,7 @@ const getYears = (skill: Skill): number => {
   return 0;
 };
 
-const SkillItem = memo(({ skill, cardIndex }: SkillItemProps) => {
+const SkillItem = ({ skill, cardIndex }: SkillItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMobile();
 
@@ -160,21 +159,47 @@ const SkillItem = memo(({ skill, cardIndex }: SkillItemProps) => {
       </TooltipContent>
     </Tooltip>
   );
-});
-
-SkillItem.displayName = "SkillItem";
+};
 
 export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) {
   const isAboveFold = index < 2;
+  const [visibleSkillsCount, setVisibleSkillsCount] = useState(isAboveFold ? skills.length : 0);
+  
+  useEffect(() => {
+    if (isAboveFold) {
+      return;
+    }
+    
+    const cardDelay = (index - 2) * 200;
+    let intervalId: NodeJS.Timeout | null = null;
+    
+    const timer = setTimeout(() => {
+      let currentCount = 0;
+      intervalId = setInterval(() => {
+        currentCount += 2;
+        if (currentCount >= skills.length) {
+          setVisibleSkillsCount(skills.length);
+          if (intervalId) clearInterval(intervalId);
+        } else {
+          setVisibleSkillsCount(currentCount);
+        }
+      }, 50);
+    }, cardDelay);
+    
+    return () => {
+      clearTimeout(timer);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [index, isAboveFold, skills.length]);
   
   return (
     <motion.div
       initial={{ opacity: 0.4, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: isAboveFold ? 0.1 : 0.2, margin: "-50px" }}
+      viewport={{ once: true, amount: isAboveFold ? 0.1 : 0.3, margin: "-100px" }}
       transition={{
-        duration: 0.3,
-        delay: isAboveFold ? index * 0.05 : index * 0.08,
+        duration: 0.4,
+        delay: isAboveFold ? index * 0.05 : (index - 2) * 0.2,
         ease: [0.25, 0.1, 0.25, 1]
       }}
       className="group relative rounded-2xl border border-primary/10 dark:border-primary/20 bg-card/80 backdrop-blur-sm p-8 hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-primary/5 dark:hover:shadow-primary/10 overflow-hidden h-full flex flex-col"
@@ -196,7 +221,7 @@ export function SkillCard({ title, skills, icon: Icon, index }: SkillCardProps) 
         </div>
 
         <div className="flex flex-wrap gap-4 flex-1">
-          {skills.map((skill) => (
+          {skills.slice(0, visibleSkillsCount).map((skill) => (
             <SkillItem
               key={skill.name}
               skill={skill}
