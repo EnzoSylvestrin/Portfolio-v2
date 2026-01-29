@@ -25,7 +25,7 @@
     { "name": "NestJS", "icon": "SiNestjs", "sinceYear": 2022, "color": "#E0234E" },
     { 
       "name": "Elysia", 
-      "iconUrl": "https://elysiajs.com/assets/elysia.png",
+      "iconUrl": "/skills/elysia.svg",
       "sinceYear": 2025, 
       "color": "#7B7FFF" 
     },
@@ -60,7 +60,7 @@
     { "name": "Docker", "icon": "SiDocker", "sinceYear": 2024, "color": "#2496ED" },
     { 
       "name": "Cursor", 
-      "iconUrl": "https://www.cursor.com/brand/icon.svg",
+      "iconUrl": "/skills/cursor.png",
       "sinceYear": 2024, 
       "color": "#000000" 
     },
