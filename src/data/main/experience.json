@@ -1,7 +1,7 @@
 [
   {
     "company": "Franquia Next Go Card",
-    "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQHIvO2Hi0WMZA/company-logo_100_100/company-logo_100_100/0/1667254163806/nextgocard_logo?e=1769644800&v=beta&t=bHe1iAqOEE8StgdHDxszFxZ75utQo3pCnyJPw4N8wJk",
+    "logo": "/experiences/nextgocard_logo.jpg",
     "title": {
       "pt": "Desenvolvedor Full Stack - Pleno",
       "en": "Full Stack Developer - Mid-level"
@@ -18,7 +18,7 @@
   },
   {
     "company": "Workana",
-    "logo": "https://media.licdn.com/dms/image/v2/C560BAQGoqkevfsjWqw/company-logo_100_100/company-logo_100_100/0/1644840712528/workana_logo?e=1769644800&v=beta&t=5zL92R2H5KbNCuNDJ0FdhqMboLBjWr8m1A_H-uCixv8",
+    "logo": "/experiences/workana_logo.jpg",
     "title": {
       "pt": "Desenvolvedor Freelancer",
       "en": "Freelance Developer"
