@@ -1,6 +1,25 @@
 [
   {
     "title": {
+      "pt": "Evalla - Minha Empresa",
+      "en": "Evalla - My Company"
+    },
+    "description": {
+      "pt": "Minha empresa, focada em [[descoberta de lugares]] a partir de [[avaliações de quem você conhece]]. O app reúne notas, fotos e um [[feed de pessoas que você segue]], além de [[listas personalizadas]] e conversas. Integra [[Apple Intelligence]] para resumir avaliações [[diretamente no iPhone]] e permite compartilhar experiências nos Stories.",
+      "en": "My company, focused on [[discovering places]] through [[reviews from people you know]]. The app brings together ratings, photos and a [[feed of people you follow]], alongside [[custom lists]] and messaging. Integrates [[Apple Intelligence]] to summarize reviews [[on-device on iPhone]] and lets users share experiences to Stories."
+    },
+    "image": "/projects/evalla.png",
+    "imageFit": "contain",
+    "technologies": [
+      "IOS",
+      "React Native",
+      "Postgres"
+    ],
+    "githubUrl": "",
+    "liveUrl": "https://www.evalla.app"
+  },
+  {
+    "title": {
       "pt": "NGFlux - Automação de Marketing",
       "en": "NGFlux - Marketing Automation"
     },
@@ -9,7 +28,14 @@
       "en": "Ecosystem that converts [[customer reviews]] into [[posts/ads]]. Uses [[AI]] for [[sentiment analysis]] and offers a [[dashboard]] with [[real-time updates via WebSockets]]. Complete traffic management and [[automated Meta Ads campaigns]]."
     },
     "image": "/projects/ngflux.png",
-    "technologies": ["NestJS", "Next.js", "Docker", "WebSockets", "OpenAI API", "Meta Graph API"],
+    "technologies": [
+      "NestJS",
+      "Next.js",
+      "Docker",
+      "WebSockets",
+      "OpenAI API",
+      "Meta Graph API"
+    ],
     "githubUrl": "",
     "liveUrl": "https://ngflux.gruponextgo.com"
   },
@@ -23,7 +49,14 @@
       "en": "Mobile app that captures project ideas through [[audio recording]]. Uses [[OpenAI Whisper]] for [[automatic transcription]] and [[GPT-4o-mini]] to generate [[structured ideas in markdown]]. [[Real-time backend with Convex]] and support for [[Android App Shortcuts]] for quick access."
     },
     "image": "/projects/save-ideas.png",
-    "technologies": ["React Native", "Expo", "TypeScript", "Convex", "OpenAI API", "Expo Router"],
+    "technologies": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Convex",
+      "OpenAI API",
+      "Expo Router"
+    ],
     "githubUrl": "https://github.com/EnzoSylvestrin/save-ideas",
     "liveUrl": ""
   },
@@ -37,7 +70,14 @@
       "en": "[[Accessibility]] mobile app that helps [[visually impaired users]] navigate urban environments through [[audio feedback]]. Locates and [[audibly announces]] nearby establishments with [[category filters]]. [[Febrace 2022 Finalist]] and [[2nd place at FEMIC 2022]] in the technical category. Built with React Native."
     },
     "image": "/projects/movestats.png",
-    "technologies": ["React Native", "HTML", "CSS", "JavaScript", "Styled Components", "Framer Motion"],
+    "technologies": [
+      "React Native",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Styled Components",
+      "Framer Motion"
+    ],
     "githubUrl": "https://github.com/EnzoSylvestrin/Move-Stats",
     "liveUrl": "https://movestats.vercel.app"
   },
@@ -51,23 +91,15 @@
       "en": "Web app for [[collaborative party planning]]. Allows creating [[custom menus]] and adding [[items wanted by each participant]]. Modern interface with [[user authentication]], [[customizable themes]], and [[real-time management]]. Built with Next.js 14."
     },
     "image": "/projects/party-items.png",
-    "technologies": ["Next.js 14", "TypeScript", "Prisma", "TailwindCSS", "Shadcn/ui"],
+    "technologies": [
+      "Next.js 14",
+      "TypeScript",
+      "Prisma",
+      "TailwindCSS",
+      "Shadcn/ui"
+    ],
     "githubUrl": "https://github.com/EnzoSylvestrin/party-items",
     "liveUrl": "https://party-items.vercel.app"
-  },
-  {
-    "title": {
-      "pt": "EcoGenius - Calculadora de Pegada de Carbono",
-      "en": "EcoGenius - Carbon Footprint Calculator"
-    },
-    "description": {
-      "pt": "Site de [[conscientização ambiental]] que alerta sobre as [[mudanças climáticas]] e oferece uma [[calculadora de pegada de carbono]]. Permite calcular emissões em diferentes áreas como transporte, casa, alimentação e consumo. Interface moderna com [[animações fluidas]] e design focado em [[sustentabilidade]].",
-      "en": "[[Environmental awareness]] website that alerts about [[climate change]] and offers a [[carbon footprint calculator]]. Allows calculating emissions in different areas such as transportation, home, food, and consumption. Modern interface with [[smooth animations]] and design focused on [[sustainability]]."
-    },
-    "image": "/projects/eco-genius.png",
-    "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Radix UI"],
-    "githubUrl": "https://github.com/EnzoSylvestrin/EcoGenius",
-    "liveUrl": "https://eco-genius.vercel.app"
   },
   {
     "title": {
@@ -79,7 +111,14 @@
       "en": "Centralized system that unifies [[NextGo Marketing APIs v1 and v2]] for [[WhatsApp message sending]]. Allows clients to [[connect multiple NextGo systems]] in one place with [[granular control to define which API to use]] per system. Offers [[official Meta WhatsApp API integration]] and [[workspace management]] for business organization."
     },
     "image": "/projects/ngnotifica.png",
-    "technologies": ["NestJS", "Next.js", "TypeScript", "Prisma", "Meta WhatsApp API", "TailwindCSS"],
+    "technologies": [
+      "NestJS",
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Meta WhatsApp API",
+      "TailwindCSS"
+    ],
     "githubUrl": "",
     "liveUrl": ""
   }

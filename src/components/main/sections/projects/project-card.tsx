@@ -14,6 +14,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
+  imageFit?: "cover" | "contain";
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
@@ -24,6 +25,7 @@ export function ProjectCard({
   title,
   description,
   image,
+  imageFit = "cover",
   technologies,
   githubUrl,
   liveUrl,
@@ -55,7 +57,7 @@ export function ProjectCard({
               src={image}
               alt={title}
               fill
-              className="object-cover object-center"
+              className={imageFit === "contain" ? "object-contain object-center" : "object-cover object-center"}
               unoptimized
             />
           ) : (

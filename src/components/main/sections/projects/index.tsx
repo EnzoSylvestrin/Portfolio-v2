@@ -38,6 +38,7 @@ export function ProjectsSection() {
                   title={project.title[lang]}
                   description={project.description[lang]}
                   image={project.image}
+                  imageFit={project.imageFit === "contain" ? "contain" : "cover"}
                   technologies={project.technologies}
                   githubUrl={project.githubUrl}
                   liveUrl={project.liveUrl}
