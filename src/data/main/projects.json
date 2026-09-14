@@ -8,8 +8,8 @@
       "pt": "Minha empresa, focada em [[descoberta de lugares]] a partir de [[avaliações de quem você conhece]]. O app reúne notas, fotos e um [[feed de pessoas que você segue]], além de [[listas personalizadas]] e conversas. Integra [[Apple Intelligence]] para resumir avaliações [[diretamente no iPhone]] e permite compartilhar experiências nos Stories.",
       "en": "My company, focused on [[discovering places]] through [[reviews from people you know]]. The app brings together ratings, photos and a [[feed of people you follow]], alongside [[custom lists]] and messaging. Integrates [[Apple Intelligence]] to summarize reviews [[on-device on iPhone]] and lets users share experiences to Stories."
     },
-    "image": "/projects/evalla.png",
-    "imageFit": "contain",
+    "image": "/projects/evalla-cover.png",
+    "imageFit": "cover",
     "technologies": [
       "IOS",
       "React Native",
